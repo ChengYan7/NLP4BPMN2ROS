@@ -1,0 +1,16 @@
+{"text": "release component", "metadata": "RC_1"}
+{"text": "grasp component", "metadata": "GC_1"}
+{"text": "reach the tray", "metadata": "RTT_1"} 
+{"text": "freedrive (activate)", "metadata": "FA_1"} 
+{"text": "freedrive (disable)", "metadata": "FD_1"} 
+{"text": "move home", "metadata": "MH"} 
+{"text": "grasp component", "metadata": "GC_2"} 
+{"text": "release component", "metadata": "RC_"} 
+{"text": "reach the tray", "metadata": "RTT_2"} 
+{"text": "freedrive (disable)", "metadata": "FD_2"}
+{"text": "freedrive (activate)", "metadata": "FA_2"}
+{"text": "move to scan area", "metadata": "MSA"}
+{"text": "rotate and scan", "metadata": "RAS"}
+{"text": "release component", "metadata": "RC_2"}
+{"text": "move away from scan area", "metadata": "MAFSA"}
+{"text": "set variables", "metadata": "SER_SV_131b5ay"}

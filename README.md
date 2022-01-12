@@ -20,3 +20,9 @@ Before using our main.py, we must upload the pre-defined files (Commands to oper
 The initial file ID of our pre-defined commands to operate the robot is "file-aVmfougPtrAX3RA40qSufHqQ". We defined some example primitive: release component, grasp component, reach the tray, freedrive (activate), freedrive (disable), move home, ....
 
 *If we meet some problem with the similarity scores later, do not forget to modify the pre-defined file with more content. 
+
+
+
+## Model Selection
+
+Since we don't have any samples for model training at all, we can only use the GPT-3 Model, which performs well in zero-shot learning. Maybe in the follow-up work, we can obtain a small amount of sample data, after which we may be able to test a variety of different models and do some fine-tuning in the future. 

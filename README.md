@@ -1,7 +1,6 @@
-# NLP4BPMN2ROS
-Project Laboratory Human Centered Robotics Winter Semester 2021-2022 at Technical University Munich
+# Usage of Natural Language Processing to facilitate robot programming in ROS
 
-Usage of Natural Language Processing to facilitate robot programming in ROS
+Project Laboratory Human Centered Robotics Winter Semester 2021-2022 at Technical University Munich
 
 by Cheng Yan, Kinga Bernacka (Supervisor: Matteo Pantano)
 

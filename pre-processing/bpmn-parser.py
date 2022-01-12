@@ -1,6 +1,7 @@
 import os
 import json 
 from xml.dom import minidom
+from xml.dom.minidom import Node
 from BPMNdictionary import BPMNdict
 from files import file_name
 
@@ -8,9 +9,10 @@ from files import file_name
 """
 TODO:
 enhance the extraction from BPMN diagram i.e. tools
+ASK: how it should be activities and tools together? 
 files to be specified in BPMN_files
 create the ROS parser
-
+multiple activities using the same tool, get only distinct?
 """
 
 
@@ -89,10 +91,7 @@ file = readXmlFile(filename1)
 # ASK: file = readXmlFile(filename)
 
 #definitions of tags to be extracted from the XML file
-activities = file.getElementsByTagName('bpmn:serviceTask') 
-#receives = file.getElementsByTagName('bpmn:receiveTask')
-#sendTasks= file.getElementsByTagName('bpmn:sendTask')
-#tasks = file.getElementsByTagName('bpmn:task')
+activities = file.getElementsByTagName('bpmn:serviceTask')
 lane = file.getElementsByTagName('bpmn:lane')
 
 #parrent tag - node:
@@ -130,5 +129,23 @@ for i in preprocessedAct:
 with open('..\\output\\BPMN_data.json', 'w') as outfile:
     json.dump(JSONdata, outfile)
 ##################################
+
+
+#extraction of elements/objects
+activities = file.getElementsByTagName('bpmn:serviceTask')
+objRef= file.getElementsByTagName('bpmn:dataObjectReference') #by id ---> extract name
+
+ObjectsArr = []
+
+for i in activities:
+    for k in i.getElementsByTagName('bpmn:dataInputAssociation'):
+        ObjectsArr.append(k.getElementsByTagName('bpmn:sourceRef')[0].firstChild.nodeValue)
+
+for k in objRef:
+    for p in ObjectsArr:
+        if (k.attributes['id'].value==p):
+            ObjectsArr.append([k.attributes['id'].value, k.attributes['name'].value.lower()])          
+
+
 
 

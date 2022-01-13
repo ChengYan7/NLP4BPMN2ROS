@@ -9,9 +9,9 @@ openai.api_key = "your API"                         # enter your API for GPT-3 h
 def nlp_search_results(query, file_ID):                      # input must be as the format "input"
     search_response = openai.Engine("davinci").search(
         search_model="davinci",
-        query=query,                                # such as: query="grasp object"
-        max_rerank=5,                               # number of documents
-        file=file_ID                                # your pre-defined file library "file-aVmfougPtrAX3RA40qSufHqQ"
+        query=query,                                    # such as: query="grasp object"
+        max_rerank=5,                                   # number of documents
+        file=file_ID                                    # your pre-defined file library "file-aVmfougPtrAX3RA40qSufHqQ"
     )
     # print(search_response)
     return search_response
@@ -19,7 +19,7 @@ def nlp_search_results(query, file_ID):                      # input must be as 
 
 # best_score: output the best score in search response
 def best_score(search_response):
-    score = re.findall(r"(?<=\"score\": )\d+", string)  # re.findall(pattern, string, flag)
+    score = re.findall(r"(?<=\"score\": )\d+", string)      # extract number after "score"
     max_score = None
     for num in score:
         if max_score is None or num > max_score:
@@ -29,8 +29,14 @@ def best_score(search_response):
 
 
 # best_command: output the pre-defined content that get the best score in search response
-
-
+def best_command(search_response):
+    score = re.findall(r"(?<=\"score\": )\d+", string)      # extract number after "score"
+    max_score = None
+    for num in score:
+        if max_score is None or num > max_score:
+            max_score = num
+    text = re.findall(r'\"score\": '+max_score+',\n\"text\": (.*?)}', search_response)      # extract the text
+    return text
 
 def main():
      # upload pre-defined files on openai (only once)

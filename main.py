@@ -1,6 +1,8 @@
 ﻿import numpy as np
+import re
 import openai
 openai.api_key = "your API"                         # enter your API for GPT-3 here
+
 
 
 # nlp_search_results: use GPT-3 model online-application to get the semantic search results
@@ -15,13 +17,19 @@ def nlp_search_results(query, file_ID):                      # input must be as 
     return search_response
 
 
-# best_score: output the pre-defined content that get the best score in search response
+# best_score: output the best score in search response
 def best_score(search_response):
+    score = re.findall(r"(?<=\"score\": )\d+", string)  # re.findall(pattern, string, flag)
+    max_score = None
+    for num in score:
+        if max_score is None or num > max_score:
+            max_score = num
+    # print('best score：', max_score)
+    return max_score
 
-    return
 
+# best_command: output the pre-defined content that get the best score in search response
 
-#
 
 
 def main():

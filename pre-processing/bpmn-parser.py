@@ -62,7 +62,7 @@ def readXmlFile(xmlFile):
 
 def replace(nreplace, str, key):
     '''
-    Functions to replace nth word (nreplace) in a string (str) with a given word (key)
+    Function to replace nth word (nreplace) in a string (str) with a given word (key)
     In our case the given word is the key from the BPMN_dictionary
     '''
 
@@ -71,7 +71,12 @@ def replace(nreplace, str, key):
     return words
 
 def dictionary(activitiesIDarr, BPMNdict):
+    """
+    Function to check if the robot activity array contains words that are the values of the dictionary,
+    if yes, the given word is replaced by the generalised name of the activity i.e. the key of dictionary
+    """
     control_var=0; 
+
     for k in activitiesIDarr:   
         words = k[0].split(' ')
         for p in sorted(BPMNdict):
@@ -93,13 +98,12 @@ file = readXmlFile(filename1)
 #definitions of tags to be extracted from the XML file
 activities = file.getElementsByTagName('bpmn:serviceTask')
 lane = file.getElementsByTagName('bpmn:lane')
+objRef= file.getElementsByTagName('bpmn:dataObjectReference') #uses the id  attribute to find the tag and extract the name of element from it
 
-#parrent tag - node:
-flowNodes= file.getElementsByTagName('bpmn:flowNodeRef')
+activitiesIDarr = [] #names + ids
+ObjectsArr = []
 
-#initialize array consisting of activities (name+id)
-activitiesIDarr = []
-#print attributes name i.e. in this case the executables in the flow written by a human
+
 for i in lane:
     #print(i.attributes['name'].value, i.attributes['id'].value) #outputs list of lane actors and id of the actions
     if (i.attributes['name'].value.lower() == "robot"): #robot lane
@@ -108,7 +112,7 @@ for i in lane:
             activitiesIDarr.append([j.attributes['name'].value.lower(), j.attributes['id'].value])
         break
 
-# dictionary implementation
+
 preprocessedAct = dictionary(activitiesIDarr, BPMNdict)
 
 #looping through the array of ['activity_name', 'activity_ID' ]        
@@ -116,7 +120,6 @@ for i in preprocessedAct:
     print(i)  
 
 
-##################################
 #create output json file for the openAI
 JSONdata ={}
 JSONdata['activities'] = []
@@ -128,19 +131,14 @@ for i in preprocessedAct:
 
 with open('..\\output\\BPMN_data.json', 'w') as outfile:
     json.dump(JSONdata, outfile)
-##################################
 
-
-#extraction of elements/objects
-activities = file.getElementsByTagName('bpmn:serviceTask')
-objRef= file.getElementsByTagName('bpmn:dataObjectReference') #by id ---> extract name
-
-ObjectsArr = []
 
 for i in activities:
     for k in i.getElementsByTagName('bpmn:dataInputAssociation'):
         ObjectsArr.append(k.getElementsByTagName('bpmn:sourceRef')[0].firstChild.nodeValue)
+        #the object array consists now of the data object references (from the sourceRef tag)
 
+#using the data obj references and fetching them as id, we are searching for the corresponding names of the tools
 for k in objRef:
     for p in ObjectsArr:
         if (k.attributes['id'].value==p):

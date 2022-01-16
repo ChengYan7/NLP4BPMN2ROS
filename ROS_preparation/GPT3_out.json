@@ -1,0 +1,32 @@
+{
+    "activities":[
+    {
+        "act_name":"release component",
+        "act_id":"RC_1",
+        "obj_name":"screw",
+        "obj_id":"obj_1",
+        "primitive":"reach"
+    },
+    {
+        "act_name":"grasp component with vacuum gripper",
+        "act_id":"GC_1",
+        "obj_name":"2 finger gripper",
+        "obj_id":"obj_111",
+        "primitive":"grasp"
+    },
+    {
+        "act_name":"reach the tray",
+        "act_id":"MH",
+        "obj_name":"tray",
+        "obj_id":"TR-22",
+        "primitive": "ungrasp"
+    },
+    {
+        "act_name":"reach the tray",
+        "act_id":"MH",
+        "obj_name":"nut",
+        "obj_id":"TR-22",
+        "primitive": "move"
+    }
+    ]
+}

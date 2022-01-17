@@ -3,12 +3,16 @@ import json
 from xml.dom import minidom
 from xml.dom.minidom import Node
 from BPMNdictionary import BPMNdict
-from files import file_name
+import sys
+# adding Folder_2 to the system path
+#sys.path.insert(0, 'C:\\Users\\Admin\\Documents\\GitHub\\NLP4BPMN2ROS\\BPMN_files\\files.py) 
+#from '..\BPMN_files\files.py' import file_name
+
 
 
 """
 TODO:
-enhance the extraction from BPMN diagram i.e. tools
+enhance the extraction from BPMN diagram i.e. tools + activities
 ASK: how it should be activities and tools together? 
 files to be specified in BPMN_files
 create the ROS parser
@@ -127,6 +131,7 @@ for i in preprocessedAct:
             JSONdata['activities'].append({
                 'name': i[0], 
                 'id':i[1]
+
                 })
 
 with open('..\\output\\BPMN_data.json', 'w') as outfile:
@@ -144,6 +149,5 @@ for k in objRef:
         if (k.attributes['id'].value==p):
             ObjectsArr.append([k.attributes['id'].value, k.attributes['name'].value.lower()])          
 
-
-
-
+for i in ObjectsArr:
+    print(i)

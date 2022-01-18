@@ -1,7 +1,7 @@
 import json
 
 my_file = open("ROSready.py", "w")
-f = open('GPT3_out.json') #GPT-3 output file with activities
+f = open('BPMNfile.json') #GPT-3 output file with activities
 data = json.load(f)
  
 def substitute(act_name, act_id, obj_name, obj_id, primitive):

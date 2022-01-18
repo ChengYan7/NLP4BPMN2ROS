@@ -1,7 +1,7 @@
 ﻿import numpy as np
 import re
 import openai
-openai.api_key = "your API"                         # enter your API for GPT-3 here
+openai.api_key = ""      # enter your API for GPT-3 here
 import json
 
 
@@ -46,6 +46,7 @@ def best_command(search_response):
     :param search_response: search result of GPT-3
     :return: the corresponding command text in pre-defined files
     """
+
     score = re.findall(r"(?<=\"score\": )\d+", search_response)      # extract number after "score"
     max_score = None
     for num in score:
@@ -56,20 +57,24 @@ def best_command(search_response):
 
 
 # open BPMN file.json
-BPMN = open('data.json', )
+BPMN = open('BPMNfile.json', )
 
 # returns JSON object as a dictionary
 data = json.load(BPMN)
 
-# Iterating through the json
-# list
-for i in data['emp_details']:
-    print(i)
+# get all action names
+for i in data["activities"]:
+    # get each search result by GPT-3
+    search_response = nlp_search_results(i['act_name'], "file-aVmfougPtrAX3RA40qSufHqQ")
+    # get corresponding command as primitive
+    dict = i
+    dict["primitive"] = best_command(search_response)
 
-# get the semantic search results by GPT-3
+    # write the corresponding "primitive" in to BPMN file.json
+    # json.dump(dict)
 
-# write the corresponding "primitive" in to BPMN file.json
-
+    # print all
+    print(dict)
 
 # Closing file
 BPMN.close()

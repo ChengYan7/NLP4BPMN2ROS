@@ -2,24 +2,35 @@
 import re
 import openai
 openai.api_key = "your API"                         # enter your API for GPT-3 here
+import json
 
 
+def nlp_search_results(query, file_ID):
+    """
+    use GPT-3 model online-application to get the semantic search results
 
-# nlp_search_results: use GPT-3 model online-application to get the semantic search results
-def nlp_search_results(query, file_ID):                      # input must be as the format "input"
+    :param query: the search content, such as: query = "grasp object"
+    :param file_ID: pre-defined file library () "file-aVmfougPtrAX3RA40qSufHqQ"
+    :return: search response of GPT-3
+    """
     search_response = openai.Engine("davinci").search(
         search_model="davinci",
-        query=query,                                    # such as: query="grasp object"
+        query=query,
         max_rerank=5,                                   # number of documents
-        file=file_ID                                    # your pre-defined file library "file-aVmfougPtrAX3RA40qSufHqQ"
+        file=file_ID
     )
     # print(search_response)
     return search_response
 
 
-# best_score: output the best score in search response
 def best_score(search_response):
-    score = re.findall(r"(?<=\"score\": )\d+", string)      # extract number after "score"
+    """
+    output the best score in search response
+
+    :param search_response: search result of GPT-3
+    :return: the max score of content similarity
+    """
+    score = re.findall(r"(?<=\"score\": )\d+", search_response)      # extract number after "score"
     max_score = None
     for num in score:
         if max_score is None or num > max_score:
@@ -28,9 +39,14 @@ def best_score(search_response):
     return max_score
 
 
-# best_command: output the pre-defined content that get the best score in search response
 def best_command(search_response):
-    score = re.findall(r"(?<=\"score\": )\d+", string)      # extract number after "score"
+    """
+    output the pre-defined content that get the best score in search response
+
+    :param search_response: search result of GPT-3
+    :return: the corresponding command text in pre-defined files
+    """
+    score = re.findall(r"(?<=\"score\": )\d+", search_response)      # extract number after "score"
     max_score = None
     for num in score:
         if max_score is None or num > max_score:
@@ -38,19 +54,23 @@ def best_command(search_response):
     text = re.findall(r'\"score\": '+max_score+',\n\"text\": (.*?)}', search_response)      # extract the text
     return text
 
-def main():
-     # upload pre-defined files on openai (only once)
 
-    # exact the text in BPMN
+# open BPMN file.json
+BPMN = open('data.json', )
 
-    # upload the text in BPMN as the query for searching
+# returns JSON object as a dictionary
+data = json.load(BPMN)
 
-    # get the semantic search results by GPT-3
+# Iterating through the json
+# list
+for i in data['emp_details']:
+    print(i)
 
-    # Determine the skill group function corresponding to the primitive and its input parameters
+# get the semantic search results by GPT-3
 
-    # output the robot's ROS programming codes
+# write the corresponding "primitive" in to BPMN file.json
 
 
-if __name__ == "__main__":
-    main()
+# Closing file
+BPMN.close()
+

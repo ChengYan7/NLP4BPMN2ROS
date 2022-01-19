@@ -10,7 +10,7 @@ def nlp_search_results(query, file_ID):
     use GPT-3 model online-application to get the semantic search results
 
     :param query: the search content, such as: query = "grasp object"
-    :param file_ID: pre-defined file library () "file-aVmfougPtrAX3RA40qSufHqQ"
+    :param file_ID: pre-defined file library () "file-xJ3fKj2VDatppSg23ZxZb4oI"
     :return: search response of GPT-3
     """
     search_response = openai.Engine("davinci").search(
@@ -65,7 +65,7 @@ data = json.load(BPMN)
 # get all action names
 for i in data["activities"]:
     # get each search result by GPT-3
-    search_response = nlp_search_results(i['act_name'], "file-aVmfougPtrAX3RA40qSufHqQ")
+    search_response = nlp_search_results(i['act_name'], "file-xJ3fKj2VDatppSg23ZxZb4oI")
     # get corresponding command as primitive
     dict = i
     dict["primitive"] = best_command(search_response)

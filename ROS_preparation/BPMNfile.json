@@ -8,11 +8,11 @@
         "primitive":"reach"
     },
     {
-        "act_name":"grasp component with vacuum gripper",
-        "act_id":"GC_1",
-        "obj_name":"2 finger gripper",
-        "obj_id":"obj_111",
-        "primitive":"grasp"
+        "act_name":"waitt",
+        "act_id":"GC_1tt",
+        "obj_name":"",
+        "obj_id":"",
+        "primitive":"wait"
     },
     {
         "act_name":"reach the tray",

@@ -3,23 +3,6 @@ import json
 from xml.dom import minidom
 from xml.dom.minidom import Node
 from BPMNdictionary import BPMNdict
-import sys
-# adding Folder_2 to the system path
-#sys.path.insert(0, 'C:\\Users\\Admin\\Documents\\GitHub\\NLP4BPMN2ROS\\BPMN_files\\files.py) 
-#from '..\BPMN_files\files.py' import file_name
-
-
-
-"""
-TODO:
-enhance the extraction from BPMN diagram i.e. tools + activities
-ASK: how it should be activities and tools together? 
-files to be specified in BPMN_files
-create the ROS parser
-multiple activities using the same tool, get only distinct?
-"""
-
-
 
 #name of the file
 filename = "UC3_inspection.bpmn"

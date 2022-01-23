@@ -103,7 +103,22 @@ if taskDefinition["object"] == "urn:ngsi-ld:TaskDefinition:siemens:Activity{act_
     taskStatus["value"] = "inProgress"
     taskStatus["observedAt"] = datetime.now().strftime("%Y-%m-%dT%H:%M:%SZ")
                 """)
-      
+
+    if(primitive!="move" and primitive !="reach" and primitive != "grasp" and primitive != "ungrasp"):
+        print("none of above 4")
+        my_file.write(f"""
+if taskDefinition["object"] == "urn:ngsi-ld:TaskDefinition:siemens:Activity{act_id}":  
+    rospy.loginfo("Task {act_name} with the ID: {act_id} in progress.")
+    # Here goes the action calling for the precise task definition
+    Activity_name = taskDefinition["object"][-16:]
+    Activity = activity(Activity_name)
+    # Sends the goal to the action server.
+    self.activeActivity = Activity
+    rospy.loginfo("Task {act_name} with the ID {act_id} has been executed.")
+    taskStatus["value"] = "inProgress"
+    taskStatus["observedAt"] = datetime.now().strftime("%Y-%m-%dT%H:%M:%SZ") 
+    """)
+
 for i in data['activities']:
     substitute(i['act_name'], i['act_id'], i['obj_name'], i['obj_id'], i['primitive'])      
     #substitute(act_name, act_id, obj_name, obj_id, primitive):  

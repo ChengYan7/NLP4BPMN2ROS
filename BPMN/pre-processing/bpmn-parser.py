@@ -5,16 +5,8 @@ from xml.dom.minidom import Node
 from BPMNdictionary import BPMNdict
 
 #name of the file
-filename = "UC3_inspection.bpmn"
-filename1 ="UC2_sorting_freedrive_remake_v1.10.bpmn"
-filename = "UC3_inspection.bpmn"
-filename = "UC3_inspection.bpmn"
-filename = "UC3_inspection.bpmn"
-filename = "UC3_inspection.bpmn"
-filename = "UC3_inspection.bpmn"
-filename = "UC3_inspection.bpmn"
-filename = "UC3_inspection.bpmn"
-
+filename1 = "UC3_inspection.bpmn"
+filename ="UC2_sorting_freedrive_remake_v1.10.bpmn"
 
 #functions definitions 
 def checkFile(filename):
@@ -80,7 +72,6 @@ def dictionary(activitiesIDarr, BPMNdict):
 
 #reads the XML file for the BPMN diagram specified in files.py
 file = readXmlFile(filename1)
-# ASK: file = readXmlFile(filename)
 
 #definitions of tags to be extracted from the XML file
 activities = file.getElementsByTagName('bpmn:serviceTask')
@@ -117,7 +108,8 @@ for i in preprocessedAct:
 
                 })
 
-with open('..\\output\\BPMN_data.json', 'w') as outfile:
+#create a json file (input to GPT-3)
+with open(filename.replace('bpmn', 'json'), 'w') as outfile:
     json.dump(JSONdata, outfile)
 
 

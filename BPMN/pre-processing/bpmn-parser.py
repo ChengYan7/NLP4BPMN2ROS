@@ -137,8 +137,8 @@ JSONdata ={}
 JSONdata['activities'] = []
 for i in preprocessedAct:
             JSONdata['activities'].append({
-                'act_name': i[0], 
-                'act_id':i[1],
+                'act_id': i[0], 
+                'act_name':i[1],
                 'obj_id':i[2], 
                 'obj_name':i[3]
                 })

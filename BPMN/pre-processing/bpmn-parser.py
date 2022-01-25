@@ -5,8 +5,9 @@ from xml.dom.minidom import Node
 from BPMNdictionary import BPMNdict
 
 #name of the file
-filename1 = "UC3_inspection.bpmn"
+filename = "UC3_inspection.bpmn"
 filename ="UC2_sorting_freedrive_remake_v1.10.bpmn"
+filename1 = "bpmnExamplewith3bubbles.bpmn"
 
 #functions definitions 
 def checkFile(filename):
@@ -72,57 +73,50 @@ def dictionary(activitiesIDarr, BPMNdict):
 
 #reads the XML file for the BPMN diagram specified in files.py
 file = readXmlFile(filename1)
+print(filename1)
 
 #definitions of tags to be extracted from the XML file
-activities = file.getElementsByTagName('bpmn:serviceTask')
+activities = file.getElementsByTagName('bpmn:task')
 lane = file.getElementsByTagName('bpmn:lane')
 objRef= file.getElementsByTagName('bpmn:dataObjectReference') #uses the id  attribute to find the tag and extract the name of element from it
 
-activitiesIDarr = [] #names + ids
-ObjectsArr = []
-
+actRefArr = []
+actObjArr = []
 
 for i in lane:
     #print(i.attributes['name'].value, i.attributes['id'].value) #outputs list of lane actors and id of the actions
     if (i.attributes['name'].value.lower() == "robot"): #robot lane
-        for j in activities:
-            #print("activity " + j.attributes['name'].value + "  " + j.attributes['id'].value)
-            activitiesIDarr.append([j.attributes['name'].value.lower(), j.attributes['id'].value])
-        break
+        if activities: 
+            for activity in activities:
+                association = activity.getElementsByTagName("bpmn:dataInputAssociation")
+                if association:
+                    for sourceRef in association:
+                        actRefArr.append([activity.attributes['id'].value.lower(), activity.attributes['name'].value.lower(), sourceRef.getElementsByTagName("bpmn:sourceRef")[0].firstChild.nodeValue, 'obj_placeholder'])
+                else:
+                    actRefArr.append([activity.attributes['id'].value.lower(), activity.attributes['name'].value.lower(), 'None', 'None'])
 
 
-preprocessedAct = dictionary(activitiesIDarr, BPMNdict)
 
-#looping through the array of ['activity_name', 'activity_ID' ]        
-for i in preprocessedAct:
-    print(i)  
+objNameIdPairs = { k.attributes['id'].value : k.attributes['name'].value.lower() for k in objRef}
+actObjFullArr = []
+for p in actRefArr:
+    if p[2] in objNameIdPairs.keys():
+        p[3] = objNameIdPairs[p[2]]
+    actObjFullArr.append(p)
 
+preprocessedAct = dictionary(actObjFullArr, BPMNdict)
 
 #create output json file for the openAI
 JSONdata ={}
 JSONdata['activities'] = []
 for i in preprocessedAct:
             JSONdata['activities'].append({
-                'name': i[0], 
-                'id':i[1]
-
+                'act_name': i[0], 
+                'act_id':i[1],
+                'obj_id':i[2], 
+                'obj_name':i[3]
                 })
 
 #create a json file (input to GPT-3)
-with open(filename.replace('bpmn', 'json'), 'w') as outfile:
-    json.dump(JSONdata, outfile)
-
-
-for i in activities:
-    for k in i.getElementsByTagName('bpmn:dataInputAssociation'):
-        ObjectsArr.append(k.getElementsByTagName('bpmn:sourceRef')[0].firstChild.nodeValue)
-        #the object array consists now of the data object references (from the sourceRef tag)
-
-#using the data obj references and fetching them as id, we are searching for the corresponding names of the tools
-for k in objRef:
-    for p in ObjectsArr:
-        if (k.attributes['id'].value==p):
-            ObjectsArr.append([k.attributes['id'].value, k.attributes['name'].value.lower()])          
-
-for i in ObjectsArr:
-    print(i)
+with open(filename1.replace('.bpmn', '.json'), 'w') as outfile:
+    json.dump(JSONdata, outfile, indent = 4)

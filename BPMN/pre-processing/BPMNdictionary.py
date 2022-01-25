@@ -1,7 +1,7 @@
 BPMNdict={
     "grasp":{"clasp", "clench", "clutch", "clutches", "grasp", "grip", "hold", "cling"},
     "reach":{"attain","reach", "arrive at", "gain", "hit", "achieve"},
-    "move":{"move", "displace"},
+    "move111111":{"move", "displace"},
     "insert":{"insert", "enclose", "put in", "put_in", "introduce","fit", "stick in"},
     "remove":{"remove", "take away", "get rid of", "transfer"},
     "stop":{"halt", "stop", "discontinue", "break off", "break", "finish", "terminate", "end"},

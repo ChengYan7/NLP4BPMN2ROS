@@ -82,7 +82,7 @@ data = json.load(BPMN)
 # get all action names
 for i in data["activities"]:
     # get each search result by GPT-3
-    classification_results = nlp_classification_results(i['act_name'], "file-C0qj8kQWTheFwcZvUbIQ0UKJ")
+    classification_results = nlp_classification_results(i['act_name'], "file-I2XzSpsdqtEDxe4sMOcH87UH")
     # get corresponding command as primitive
     dict = i
     dict["primitive"] = corr_label(classification_results)

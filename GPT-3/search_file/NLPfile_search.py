@@ -1,7 +1,7 @@
 ﻿import numpy as np
 import re
 import openai
-openai.api_key = "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"      # enter your API for GPT-3 here
+openai.api_key = "API"      # enter your API for GPT-3 here
 import json
 
 
@@ -16,7 +16,7 @@ def nlp_search_results(query, file_ID):
     search_response = openai.Engine("davinci").search(
         search_model="davinci",
         query=query,
-        max_rerank=5,                                   # number of documents
+        max_rerank=1,                                   # number of documents
         file=file_ID
     )
     # print(search_response)
@@ -72,7 +72,7 @@ def best_command(search_response):
 
 
 # open BPMN file.json
-BPMN = open('BPMNfile.json', )
+BPMN = open("..\BPMNfile.json", )
 
 # returns JSON object as a dictionary
 data = json.load(BPMN)

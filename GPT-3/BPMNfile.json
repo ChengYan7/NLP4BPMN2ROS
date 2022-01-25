@@ -13,7 +13,7 @@
         "obj_id":"obj_111"
     },
     {
-        "act_name":"reach the tray",
+        "act_name":"move the tray",
         "act_id":"MH",
         "obj_name":"tray",
         "obj_id":"TR-22"

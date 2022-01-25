@@ -1,0 +1,18 @@
+{"text": "Reach: Motion of the hand-arm-system without load", "label": "Reach", "metadata": "Move/Motion"}
+{"text": "Move: Move handling of a load", "label": "Move", "metadata": "Move/Motion"}
+{"text": "Insert/Remove: Change of the position of a part in relation to a reference coordinate system", "label": "Insert/Remove", "metadata": "Connect"} 
+{"text": "Screw/Unscrew: Rotation of the hand-arm system along a fixed axis", "label": "Screw/Unscrew", "metadata": "Connect"} 
+{"text": "Stop: Stop of a motion", "label": "Stop", "metadata": "Move/Motion"} 
+{"text": "Relocate: Repositioning of the worker/robot in space", "label": "Relocate", "metadata": "Change"}
+{"text": "Grasp: Indicates that the gripper of a robot or the hand of human worker holds an object", "label": "Grasp", "metadata": "Connect"}
+{"text": "Release: The gripper of a robot or the hand of human worker is free", "label": "Release", "metadata": "Connect"} 
+{"text": "Pick: Pick up a tool from a tool magazine", "label": "Pick", "metadata": "Connect"} 
+{"text": "Return: Return of a tool into a tool magazine", "label": "Return", "metadata": "Connect"} 
+{"text": "Calibrate: Robot must be calibrated at its current position or a human worker has to orientate himself at the working place", "label": "Calibrate", "metadata": "Compare"}
+{"text": "Vision: Automated recognizing, identifying, localizing objects", "label": "Vision", "metadata": "Compare"}
+{"text": "Follow: Mirroring of other movements in general", "label": "Follow", "metadata": "Collaboration"} 
+{"text": "Balance: Hold the position within the current circumstances", "label": "Balance", "metadata": "Collaboration"} 
+{"text": "Record: Recording a path, e.g. during teaching (special case of follow)", "label": "Record", "metadata": "Collaboration"} 
+{"text": "Teach: Information exchange form the senior human worker to the novice/robots", "label": "Teach", "metadata": "Collaboration"}
+{"text": "Communicate: Information exchange between two or more workers/robots", "label": "Communicate", "metadata": "Collaboration"}
+{"text": "Time Delay: Wait while the other partner performs an action", "label": "Time Delay", "metadata": "Compare"} 

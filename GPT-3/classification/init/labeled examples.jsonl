@@ -1,0 +1,18 @@
+{"text": "Motion of the hand-arm-system without load", "label": "Reach", "metadata": "Move/Motion"}
+{"text": "Move handling of a load", "label": "Move", "metadata": "Move/Motion"}
+{"text": "Change of the position of a part in relation to a reference coordinate system", "label": "Insert/Remove", "metadata": "Connect"} 
+{"text": "Rotation of the hand-arm system along a fixed axis", "label": "Screw/Unscrew", "metadata": "Connect"} 
+{"text": "Stop of a motion", "label": "Stop", "metadata": "Move/Motion"} 
+{"text": "Repositioning of the worker/robot in space", "label": "Relocate", "metadata": "Change"}
+{"text": "Indicates that the gripper of a robot or the hand of human worker holds an object", "label": "Grasp", "metadata": "Connect"}
+{"text": "The gripper of a robot or the hand of human worker is free", "label": "Release", "metadata": "Connect"} 
+{"text": "Pick up a tool from a tool magazine", "label": "Pick", "metadata": "Connect"} 
+{"text": "Return of a tool into a tool magazine", "label": "Return", "metadata": "Connect"} 
+{"text": "Robot must be calibrated at its current position or a human worker has to orientate himself at the working place", "label": "Calibrate", "metadata": "Compare"}
+{"text": "Automated recognizing, identifying, localizing objects", "label": "Vision", "metadata": "Compare"}
+{"text": "Mirroring of other movements in general", "label": "Follow", "metadata": "Collaboration"} 
+{"text": "Hold the position within the current circumstances", "label": "Balance", "metadata": "Collaboration"} 
+{"text": "Recording a path, e.g. during teaching (special case of follow)", "label": "Record", "metadata": "Collaboration"} 
+{"text": "Information exchange form the senior human worker to the novice/robots", "label": "Teach", "metadata": "Collaboration"}
+{"text": "Information exchange between two or more workers/robots", "label": "Communicate", "metadata": "Collaboration"}
+{"text": "Wait while the other partner performs an action", "label": "Time Delay", "metadata": "Compare"} 

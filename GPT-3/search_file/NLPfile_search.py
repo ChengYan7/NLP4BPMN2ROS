@@ -1,7 +1,7 @@
 ﻿import numpy as np
 import re
 import openai
-openai.api_key = "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"      # enter your API for GPT-3 here
+openai.api_key = "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"      # enter your API for GPT-3 here
 import json
 
 

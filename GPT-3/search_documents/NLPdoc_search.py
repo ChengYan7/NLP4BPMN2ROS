@@ -2,7 +2,7 @@
 import re
 import openai
 
-openai.api_key = "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"  # enter your API for GPT-3 here
+openai.api_key = "API"  # enter your API for GPT-3 here
 import json
 
 
@@ -76,7 +76,7 @@ def best_command(search_response):
 
 
 # open BPMN file.json
-BPMN = open('BPMNfile.json', )
+BPMN = open('..\BPMNfile.json', )
 
 # returns JSON object as a dictionary
 data = json.load(BPMN)

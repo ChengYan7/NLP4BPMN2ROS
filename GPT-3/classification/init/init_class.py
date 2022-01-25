@@ -4,7 +4,7 @@ import openai
 openai.api_key = "API"
 
 # upload your train dataset
-response = openai.File.create(file=open("labeled examples.jsonl"), purpose="classifications")
+response = openai.File.create(file=open("labeled examples 2.jsonl"), purpose="classifications")
 
 # get your file ID as response
 print(response)
@@ -13,3 +13,6 @@ print(response)
 
 #  "filename": "labeled examples.jsonl",
 #  "id": "file-PovQSNq6cQozNGRdH8IYCowu",
+
+#  "filename": "labeled examples 2.jsonl",
+#  "id": "file-C0qj8kQWTheFwcZvUbIQ0UKJ",

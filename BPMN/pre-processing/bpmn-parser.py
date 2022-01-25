@@ -50,7 +50,7 @@ def replace(nreplace, str, key):
     words = " ".join([words[word_index] if word_index != nreplace else key for word_index in range(len(words))])
     return words
 
-def dictionary(activitiesIDarr, BPMNdict):
+def dictionary(activitiesIDarr, BPMNdict, nreplace = 1):
     """
     Function to check if the robot activity array contains words that are the values of the dictionary,
     if yes, the given word is replaced by the generalised name of the activity i.e. the key of dictionary
@@ -58,14 +58,14 @@ def dictionary(activitiesIDarr, BPMNdict):
     control_var=0; 
 
     for k in activitiesIDarr:   
-        words = k[0].split(' ')
+        words = k[nreplace].split(' ')
         for p in sorted(BPMNdict):
-            if any(word in k[0] for word in BPMNdict[p]):
+            if any(word in k[nreplace] for word in BPMNdict[p]):
                 for single_dict_value in BPMNdict[p]:
                     if single_dict_value in words:
                         pos = words.index(single_dict_value)
-                        str = replace(pos, k[0],p)
-                        activitiesIDarr[control_var][0] = str
+                        str = replace(pos, k[nreplace],p)
+                        activitiesIDarr[control_var][nreplace] = str
         control_var+=1
     return activitiesIDarr
 
@@ -105,11 +105,12 @@ for p in actRefArr:
     actObjFullArr.append(p)
 
 preprocessedAct = dictionary(actObjFullArr, BPMNdict)
+preprocessedObj = dictionary(actObjFullArr, BPMNdict, 3)
 
 #create output json file for the openAI
 JSONdata ={}
 JSONdata['activities'] = []
-for i in preprocessedAct:
+for i in preprocessedObj:
             JSONdata['activities'].append({
                 'act_name': i[0], 
                 'act_id':i[1],

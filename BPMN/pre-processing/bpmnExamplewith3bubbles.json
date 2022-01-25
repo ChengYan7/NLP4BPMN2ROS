@@ -2,13 +2,13 @@
     "activities": [
         {
             "act_name": "activity_0g465ty",
-            "act_id": "take another part",
+            "act_id": "pick another part",
             "obj_id": "DataObjectReference_1k5an92",
             "obj_name": "vacuum gripper"
         },
         {
             "act_name": "activity_0g465ty",
-            "act_id": "take another part",
+            "act_id": "pick another part",
             "obj_id": "DataObjectReference_1hmc5nv",
             "obj_name": "nut"
         },
@@ -20,13 +20,13 @@
         },
         {
             "act_name": "activity_17enonq",
-            "act_id": "move the part ot the tray",
+            "act_id": "move111111 the part ot the tray",
             "obj_id": "DataObjectReference_1k5an92",
             "obj_name": "vacuum gripper"
         },
         {
             "act_name": "activity_17enonq",
-            "act_id": "move the part ot the tray",
+            "act_id": "move111111 the part ot the tray",
             "obj_id": "DataObjectReference_0qzmupw",
             "obj_name": "screw"
         },

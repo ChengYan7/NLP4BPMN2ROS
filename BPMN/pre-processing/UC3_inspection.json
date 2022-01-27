@@ -1,0 +1,40 @@
+{
+    "activities": [
+        {
+            "act_id": "activity_0mpb6o3",
+            "act_name": "get origin pose",
+            "obj_id": "DataObjectReference_1k75xob",
+            "obj_name": "gripper"
+        },
+        {
+            "act_id": "activity_0557lv5",
+            "act_name": "reach the start pose",
+            "obj_id": "DataObjectReference_021wlg6",
+            "obj_name": "home pose"
+        },
+        {
+            "act_id": "activity_1u91l13",
+            "act_name": "teach (activate)",
+            "obj_id": "None",
+            "obj_name": "None"
+        },
+        {
+            "act_id": "activity_1joo20r",
+            "act_name": "get xy-plane pose",
+            "obj_id": "DataObjectReference_0iv1pl0",
+            "obj_name": "gripper"
+        },
+        {
+            "act_id": "activity_0ssm7sh",
+            "act_name": "get x-axis pose",
+            "obj_id": "DataObjectReference_1frc0w1",
+            "obj_name": "gripper"
+        },
+        {
+            "act_id": "activity_0xhzgcu",
+            "act_name": "teach command (disable)",
+            "obj_id": "None",
+            "obj_name": "None"
+        }
+    ]
+}

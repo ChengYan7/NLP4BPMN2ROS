@@ -5,10 +5,10 @@ from xml.dom.minidom import Node
 from BPMNdictionary import BPMNdict
 
 #name of the file - activate the file by switching to filename1
-filename = "UC3_inspection.bpmn"
+filename1 = "UC3_inspection.bpmn"
 filename ="UC2_sorting_freedrive_remake_v1.10.bpmn"
 filename = "bpmnExamplewith3bubbles.bpmn"
-filename1= "C:\\Users\\Admin\\Documents\\GitHub\\HumanCenteredRobotics_Project\\BPMN\\pre-processing\\bpmnExamplewith3bubbles.bpmn"
+filename= "C:\\Users\\Admin\\Documents\\GitHub\\HumanCenteredRobotics_Project\\BPMN\\pre-processing\\bpmnExamplewith3bubbles.bpmn"
 
 #functions definitions 
 def checkFile(filename):
@@ -103,7 +103,7 @@ def dictionary(inputArr, dictionary, nreplace = 1):
 file = readXmlFile(filename1)
 
 #definitions of tags to be extracted from the XML file
-activities = file.getElementsByTagName('bpmn:task')
+activities = file.getElementsByTagName('bpmn:serviceTask')
 lane = file.getElementsByTagName('bpmn:lane')
 objRef= file.getElementsByTagName('bpmn:dataObjectReference') #uses the id  attribute to find the tag and extract the name of element from it
 
@@ -120,7 +120,6 @@ for i in lane:
                         actRefArr.append([activity.attributes['id'].value.lower(), activity.attributes['name'].value.lower(), sourceRef.getElementsByTagName("bpmn:sourceRef")[0].firstChild.nodeValue, 'obj_placeholder'])
                 else:
                     actRefArr.append([activity.attributes['id'].value.lower(), activity.attributes['name'].value.lower(), 'None', 'None'])
-
 
 
 objNameIdPairs = { k.attributes['id'].value : k.attributes['name'].value.lower() for k in objRef}

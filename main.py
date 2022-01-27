@@ -315,7 +315,7 @@ def main():
     file = readXmlFile(filename1)
 
     # definitions of tags to be extracted from the XML file
-    activities = file.getElementsByTagName('bpmn:task')
+    activities = file.getElementsByTagName('bpmn:serviceTask')
     lane = file.getElementsByTagName('bpmn:lane')
     objRef = file.getElementsByTagName(
         'bpmn:dataObjectReference')  # uses the id  attribute to find the tag and extract the name of element from it

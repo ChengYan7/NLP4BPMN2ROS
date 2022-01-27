@@ -70,7 +70,7 @@ def checkFile(filename):
             valid = False
 
     if not valid:
-        raise SqlmapSystemException("unable to read file '%s'" % filename)
+        raise Exception("unable to read file '%s'" % filename)
 
 
 def readXmlFile(xmlFile):
@@ -121,7 +121,7 @@ def dictionary(inputArr, dictionary, nreplace=1):
     Returns:
     inputArr: array after preprocessing
     """
-    control_var = 0;
+    control_var = 0
 
     for k in inputArr:
         words = k[nreplace].split(' ')

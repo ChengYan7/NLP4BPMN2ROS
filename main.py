@@ -359,7 +359,7 @@ def main():
             'obj_id': i[2],
             'obj_name': i[3]})
         # get each classification result by GPT-3
-        classification_results = nlp_classification_results(i['act_name'], "file-I2XzSpsdqtEDxe4sMOcH87UH")
+        classification_results = nlp_classification_results(i[1], "file-I2XzSpsdqtEDxe4sMOcH87UH")
         # get corresponding command as primitive
         primitive = corr_label(classification_results)
         JSONdata['activities'].append({
@@ -370,7 +370,7 @@ def main():
         json.dump(JSONdata, outfile, indent=4)
 
     # 3. output robot's programming code in ROS
-    input_file = 'BPMNfile.json'
+    input_file = filename1.replace('.bpmn', '.json')
 
     my_file = open(input_file.replace('.json', '.py'), "w")
     f = open(input_file)

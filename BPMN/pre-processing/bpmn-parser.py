@@ -7,7 +7,8 @@ from BPMNdictionary import BPMNdict
 #name of the file - activate the file by switching to filename1
 filename = "UC3_inspection.bpmn"
 filename ="UC2_sorting_freedrive_remake_v1.10.bpmn"
-filename1 = "bpmnExamplewith3bubbles.bpmn"
+filename = "bpmnExamplewith3bubbles.bpmn"
+filename1= "C:\\Users\\Admin\\Documents\\GitHub\\HumanCenteredRobotics_Project\\BPMN\\pre-processing\\bpmnExamplewith3bubbles.bpmn"
 
 #functions definitions 
 def checkFile(filename):
@@ -97,7 +98,6 @@ def dictionary(inputArr, dictionary, nreplace = 1):
         control_var+=1
     return inputArr
 
-    
 
 #reads the XML file for the BPMN diagram specified in files.py
 file = readXmlFile(filename1)
@@ -146,3 +146,4 @@ for i in preprocessedAct:
 #create a file (input to GPT-3)
 with open(filename1.replace('.bpmn', '.json'), 'w') as outfile:
     json.dump(JSONdata, outfile, indent = 4)
+

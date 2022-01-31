@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" id="Definitions_1e6ec0i" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.6.0">
+  <bpmn:collaboration id="Collaboration_0izqxkq">
+    <bpmn:participant id="Participant_0r84wqy" name="Gearbox assembly" processRef="Process_13szjtx" />
+  </bpmn:collaboration>
+  <bpmn:process id="Process_13szjtx" name="Gearbox assembly" isExecutable="true">
+    <bpmn:laneSet id="LaneSet_0ireimk">
+      <bpmn:lane id="Lane_1d6crjy" name="Operator">
+        <bpmn:extensionElements>
+          <camunda:properties>
+            <camunda:property name="type" value="person" />
+          </camunda:properties>
+        </bpmn:extensionElements>
+        <bpmn:flowNodeRef>Activity_1a0mefg</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Event_14l0rnx</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_07rzqyo</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_0wby8eh" name="Robot">
+        <bpmn:extensionElements>
+          <camunda:properties>
+            <camunda:property name="type" value="device" />
+          </camunda:properties>
+        </bpmn:extensionElements>
+        <bpmn:flowNodeRef>Activity_03afyx2</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_11fiqbb</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_1uwgc5r</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_0cuizk7</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_10geahf</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Event_1ed48ad</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:serviceTask id="Activity_03afyx2" name="Move base plate" camunda:type="external" camunda:topic="heyIam">
+      <bpmn:extensionElements>
+        <camunda:properties>
+          <camunda:property name="hrtm" value="relocate" />
+        </camunda:properties>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_01ezlg8</bpmn:incoming>
+      <bpmn:outgoing>Flow_0p7o2cb</bpmn:outgoing>
+      <bpmn:property id="Property_0zgg4ef" name="__targetRef_placeholder" />
+      <bpmn:dataInputAssociation id="DataInputAssociation_0cja5zr">
+        <bpmn:sourceRef>DataObjectReference_1nuy3e7</bpmn:sourceRef>
+        <bpmn:targetRef>Property_0zgg4ef</bpmn:targetRef>
+      </bpmn:dataInputAssociation>
+      <bpmn:dataInputAssociation id="DataInputAssociation_0qhfc80">
+        <bpmn:sourceRef>DataObjectReference_1vj5y98</bpmn:sourceRef>
+        <bpmn:targetRef>Property_0zgg4ef</bpmn:targetRef>
+      </bpmn:dataInputAssociation>
+    </bpmn:serviceTask>
+    <bpmn:dataObjectReference id="DataObjectReference_1vj5y98" name="BASE PLATE" dataObjectRef="DataObject_1sekixa">
+      <bpmn:extensionElements>
+        <camunda:properties>
+          <camunda:property name="type" value="asset" />
+          <camunda:property name="name" />
+          <camunda:property name="type" />
+        </camunda:properties>
+      </bpmn:extensionElements>
+    </bpmn:dataObjectReference>
+    <bpmn:dataObject id="DataObject_1sekixa" />
+    <bpmn:dataObjectReference id="DataObjectReference_1nuy3e7" name="GRIPPER" dataObjectRef="DataObject_1yn2r6e">
+      <bpmn:extensionElements>
+        <camunda:properties>
+          <camunda:property name="type" value="asset" />
+          <camunda:property name="name" />
+          <camunda:property name="type" />
+        </camunda:properties>
+      </bpmn:extensionElements>
+    </bpmn:dataObjectReference>
+    <bpmn:dataObject id="DataObject_1yn2r6e" />
+    <bpmn:userTask id="Activity_1a0mefg" name="Send START command" camunda:modelerTemplate="com.camunda.template.hrtm">
+      <bpmn:extensionElements>
+        <camunda:properties>
+          <camunda:property name="hrtm" value="manipulate" />
+        </camunda:properties>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1xfy34r</bpmn:incoming>
+      <bpmn:outgoing>Flow_0olojaf</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:startEvent id="Event_14l0rnx" name="Start">
+      <bpmn:outgoing>Flow_1xfy34r</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:parallelGateway id="Gateway_07rzqyo">
+      <bpmn:incoming>Flow_0olojaf</bpmn:incoming>
+      <bpmn:outgoing>Flow_1uyzmx6</bpmn:outgoing>
+      <bpmn:outgoing>Flow_1ouodpj</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:serviceTask id="Activity_11fiqbb" name="Reach base plate" camunda:modelerTemplate="com.camunda.template.hrtm">
+      <bpmn:extensionElements>
+        <camunda:properties>
+          <camunda:property name="hrtm" value="relocate" />
+        </camunda:properties>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1uyzmx6</bpmn:incoming>
+      <bpmn:outgoing>Flow_1l0hig3</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Activity_1uwgc5r" name="Grasp base plate" camunda:modelerTemplate="com.camunda.template.hrtm">
+      <bpmn:extensionElements>
+        <camunda:properties>
+          <camunda:property name="hrtm" value="relocate" />
+        </camunda:properties>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1l0hig3</bpmn:incoming>
+      <bpmn:outgoing>Flow_01ezlg8</bpmn:outgoing>
+      <bpmn:property id="Property_1nzjokx" name="__targetRef_placeholder" />
+      <bpmn:dataInputAssociation id="DataInputAssociation_0ja3mkz">
+        <bpmn:sourceRef>DataObjectReference_1nuy3e7</bpmn:sourceRef>
+        <bpmn:targetRef>Property_1nzjokx</bpmn:targetRef>
+      </bpmn:dataInputAssociation>
+      <bpmn:dataInputAssociation id="DataInputAssociation_0lc7ki0">
+        <bpmn:sourceRef>DataObjectReference_1vj5y98</bpmn:sourceRef>
+        <bpmn:targetRef>Property_1nzjokx</bpmn:targetRef>
+      </bpmn:dataInputAssociation>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Activity_0cuizk7" name="Release base plate" camunda:modelerTemplate="com.camunda.template.hrtm">
+      <bpmn:extensionElements>
+        <camunda:properties>
+          <camunda:property name="hrtm" value="relocate" />
+        </camunda:properties>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0p7o2cb</bpmn:incoming>
+      <bpmn:outgoing>Flow_13eo2ht</bpmn:outgoing>
+      <bpmn:property id="Property_0cju4gw" name="__targetRef_placeholder" />
+      <bpmn:dataInputAssociation id="DataInputAssociation_07v3lpq">
+        <bpmn:sourceRef>DataObjectReference_1vj5y98</bpmn:sourceRef>
+        <bpmn:targetRef>Property_0cju4gw</bpmn:targetRef>
+      </bpmn:dataInputAssociation>
+      <bpmn:dataInputAssociation id="DataInputAssociation_18f9fuo">
+        <bpmn:sourceRef>DataObjectReference_1nuy3e7</bpmn:sourceRef>
+        <bpmn:targetRef>Property_0cju4gw</bpmn:targetRef>
+      </bpmn:dataInputAssociation>
+    </bpmn:serviceTask>
+    <bpmn:parallelGateway id="Gateway_10geahf">
+      <bpmn:incoming>Flow_13eo2ht</bpmn:incoming>
+      <bpmn:incoming>Flow_1ouodpj</bpmn:incoming>
+      <bpmn:outgoing>Flow_08tqwle</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:endEvent id="Event_1ed48ad">
+      <bpmn:incoming>Flow_08tqwle</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_0p7o2cb" sourceRef="Activity_03afyx2" targetRef="Activity_0cuizk7" />
+    <bpmn:sequenceFlow id="Flow_1uyzmx6" sourceRef="Gateway_07rzqyo" targetRef="Activity_11fiqbb" />
+    <bpmn:sequenceFlow id="Flow_1xfy34r" sourceRef="Event_14l0rnx" targetRef="Activity_1a0mefg" />
+    <bpmn:sequenceFlow id="Flow_1l0hig3" sourceRef="Activity_11fiqbb" targetRef="Activity_1uwgc5r" />
+    <bpmn:sequenceFlow id="Flow_01ezlg8" sourceRef="Activity_1uwgc5r" targetRef="Activity_03afyx2" />
+    <bpmn:sequenceFlow id="Flow_13eo2ht" sourceRef="Activity_0cuizk7" targetRef="Gateway_10geahf" />
+    <bpmn:sequenceFlow id="Flow_0olojaf" sourceRef="Activity_1a0mefg" targetRef="Gateway_07rzqyo" />
+    <bpmn:sequenceFlow id="Flow_1ouodpj" sourceRef="Gateway_07rzqyo" targetRef="Gateway_10geahf" />
+    <bpmn:sequenceFlow id="Flow_08tqwle" sourceRef="Gateway_10geahf" targetRef="Event_1ed48ad" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_0izqxkq">
+      <bpmndi:BPMNShape id="Participant_0r84wqy_di" bpmnElement="Participant_0r84wqy" isHorizontal="true">
+        <dc:Bounds x="160" y="80" width="1200" height="970" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_1d6crjy_di" bpmnElement="Lane_1d6crjy" isHorizontal="true">
+        <dc:Bounds x="190" y="770" width="1170" height="280" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_0wby8eh_di" bpmnElement="Lane_0wby8eh" isHorizontal="true">
+        <dc:Bounds x="190" y="80" width="1170" height="690" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_0p7o2cb_di" bpmnElement="Flow_0p7o2cb">
+        <di:waypoint x="910" y="570" />
+        <di:waypoint x="950" y="570" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1uyzmx6_di" bpmnElement="Flow_1uyzmx6">
+        <di:waypoint x="460" y="865" />
+        <di:waypoint x="460" y="570" />
+        <di:waypoint x="510" y="570" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1xfy34r_di" bpmnElement="Flow_1xfy34r">
+        <di:waypoint x="268" y="890" />
+        <di:waypoint x="310" y="890" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1l0hig3_di" bpmnElement="Flow_1l0hig3">
+        <di:waypoint x="610" y="570" />
+        <di:waypoint x="660" y="570" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_01ezlg8_di" bpmnElement="Flow_01ezlg8">
+        <di:waypoint x="760" y="570" />
+        <di:waypoint x="810" y="570" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_13eo2ht_di" bpmnElement="Flow_13eo2ht">
+        <di:waypoint x="1050" y="570" />
+        <di:waypoint x="1115" y="570" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0olojaf_di" bpmnElement="Flow_0olojaf">
+        <di:waypoint x="410" y="890" />
+        <di:waypoint x="435" y="890" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1ouodpj_di" bpmnElement="Flow_1ouodpj">
+        <di:waypoint x="485" y="890" />
+        <di:waypoint x="1140" y="890" />
+        <di:waypoint x="1140" y="595" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_08tqwle_di" bpmnElement="Flow_08tqwle">
+        <di:waypoint x="1165" y="570" />
+        <di:waypoint x="1212" y="570" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Activity_03afyx2_di" bpmnElement="Activity_03afyx2">
+        <dc:Bounds x="810" y="530" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DataObjectReference_1vj5y98_di" bpmnElement="DataObjectReference_1vj5y98" bioc:stroke="rgb(251, 140, 0)" bioc:fill="rgb(255, 224, 178)">
+        <dc:Bounds x="502" y="435" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="486" y="411" width="68" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DataObjectReference_1nuy3e7_di" bpmnElement="DataObjectReference_1nuy3e7" bioc:stroke="rgb(251, 140, 0)" bioc:fill="rgb(255, 224, 178)">
+        <dc:Bounds x="502" y="355" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="494" y="331" width="51" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1a0mefg_di" bpmnElement="Activity_1a0mefg">
+        <dc:Bounds x="310" y="850" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_14l0rnx_di" bpmnElement="Event_14l0rnx">
+        <dc:Bounds x="232" y="872" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="238" y="915" width="25" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_07rzqyo_di" bpmnElement="Gateway_07rzqyo">
+        <dc:Bounds x="435" y="865" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_11fiqbb_di" bpmnElement="Activity_11fiqbb">
+        <dc:Bounds x="510" y="530" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1uwgc5r_di" bpmnElement="Activity_1uwgc5r">
+        <dc:Bounds x="660" y="530" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0cuizk7_di" bpmnElement="Activity_0cuizk7">
+        <dc:Bounds x="950" y="530" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_10geahf_di" bpmnElement="Gateway_10geahf">
+        <dc:Bounds x="1115" y="545" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1ed48ad_di" bpmnElement="Event_1ed48ad">
+        <dc:Bounds x="1212" y="552" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="DataInputAssociation_0cja5zr_di" bpmnElement="DataInputAssociation_0cja5zr">
+        <di:waypoint x="538" y="380" />
+        <di:waypoint x="860" y="380" />
+        <di:waypoint x="860" y="530" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataInputAssociation_0ja3mkz_di" bpmnElement="DataInputAssociation_0ja3mkz">
+        <di:waypoint x="538" y="380" />
+        <di:waypoint x="710" y="380" />
+        <di:waypoint x="710" y="530" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataInputAssociation_0lc7ki0_di" bpmnElement="DataInputAssociation_0lc7ki0">
+        <di:waypoint x="538" y="460" />
+        <di:waypoint x="710" y="460" />
+        <di:waypoint x="710" y="530" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataInputAssociation_0qhfc80_di" bpmnElement="DataInputAssociation_0qhfc80">
+        <di:waypoint x="538" y="460" />
+        <di:waypoint x="860" y="460" />
+        <di:waypoint x="860" y="530" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataInputAssociation_07v3lpq_di" bpmnElement="DataInputAssociation_07v3lpq">
+        <di:waypoint x="538" y="460" />
+        <di:waypoint x="1000" y="460" />
+        <di:waypoint x="1000" y="530" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataInputAssociation_18f9fuo_di" bpmnElement="DataInputAssociation_18f9fuo">
+        <di:waypoint x="538" y="380" />
+        <di:waypoint x="1000" y="380" />
+        <di:waypoint x="1000" y="530" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

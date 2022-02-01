@@ -1,8 +1,6 @@
-﻿import numpy as np
-import re
+﻿import re
 import openai
 import json
-from xml.dom import minidom
 from config import key 
 from BPMN.BPMN_dict import BPMNdict
 from BPMN.pre_functions import dictionary, readXmlFile
@@ -83,7 +81,6 @@ def main():
         classification_results = nlp_classification_results(i[1], "file-I2XzSpsdqtEDxe4sMOcH87UH")
         # get corresponding command as primitive
         primitive = corr_label(classification_results)
-        print(primitive)
         JSONdata['activities'].append(
             {
             'act_id': i[0],
@@ -94,25 +91,19 @@ def main():
             })
 
     # create a file (input to GPT-3)
-    with open(filename1.replace('.bpmn', '.json'), 'w') as outfile:
+    with open("Output\\" + filename1.replace('.bpmn', '.json'), 'w') as outfile:
         json.dump(JSONdata, outfile, indent=4)
 
     # 3. output robot's programming code in ROS
-    input_file = filename1.replace('.bpmn', '.json')
+    input_file = "Output\\" +filename1.replace('.bpmn', '.json')
 
     my_file = open(input_file.replace('.json', '.py'), "w")
     f = open(input_file)
     data = json.load(f)
 
+#ROS file creation 
     for i in data['activities']:
         substitute(i['act_name'], i['act_id'], i['obj_name'], i['obj_id'], i['primitive'], my_file)
-        #substitute(act_name, act_id, obj_name, obj_id, primitive):
-
-
-    # my_file = open("ROSready.py")
-    # content = my_file.read()
-    # my_file.close()
-
 
 
 if __name__ == "__main__":

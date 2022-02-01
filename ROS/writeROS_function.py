@@ -1,14 +1,14 @@
 def substitute(act_name, act_id, obj_name, obj_id, primitive, my_file):
     if (obj_name == "2 finger gripper"):
-        finger_gripper = True;
-        act_module = False;
+        finger_gripper = True
+        act_module = False
     elif (obj_name == "vacuum gripper"):
-        finger_gripper = False;
-        act_module = True;
+        finger_gripper = False
+        act_module = True
     else:
         # default values
-        finger_gripper = False;
-        act_module = False;
+        finger_gripper = False
+        act_module = False
 
         # MOVE/REACH with screw object
     if ((primitive == "move" or primitive == "reach") and obj_name == "screw"):
@@ -36,7 +36,7 @@ if taskDefinition["object"] == "urn:ngsi-ld:TaskDefinition:siemens:Activity{act_
         # GRASP
         # If the object connected is a 2 finger gripper the parameter to be changes is "grasp"
         # if it is something else the parameter to be changed is "activatemodule"
-    if (primitive == "grasp"):
+    elif (primitive == "grasp"):
         print("grasp")
         my_file.write(f"""
 if taskDefinition["object"] == "urn:ngsi-ld:TaskDefinition:siemens:Activity{act_id}":  
@@ -57,7 +57,7 @@ if taskDefinition["object"] == "urn:ngsi-ld:TaskDefinition:siemens:Activity{act_
         # UNGRASP
         # If the object connected is a 2 finger gripper the parameter to be changes is "grasp"
         # if it is something else the parameter to be changed is "activatemodule"
-    if (primitive == "ungrasp"):
+    elif (primitive == "ungrasp"):
         print("ungrasp")
         my_file.write(f"""
 if taskDefinition["object"] == "urn:ngsi-ld:TaskDefinition:siemens:Activity{act_id}":  
@@ -76,7 +76,7 @@ if taskDefinition["object"] == "urn:ngsi-ld:TaskDefinition:siemens:Activity{act_
             """)
 
         # MOVE/REACH with nut object
-    if ((primitive == "move" or primitive == "reach") and obj_name == "nut"):
+    elif ((primitive == "move" or primitive == "reach") and obj_name == "nut"):
         print("move/reach + nut")
         my_file.write(f"""
 if taskDefinition["object"] == "urn:ngsi-ld:TaskDefinition:siemens:Activity{act_id}":
@@ -98,8 +98,7 @@ if taskDefinition["object"] == "urn:ngsi-ld:TaskDefinition:siemens:Activity{act_
     taskStatus["observedAt"] = datetime.now().strftime("%Y-%m-%dT%H:%M:%SZ")
                 """)
 
-    if (primitive != "move" and primitive != "reach" and primitive != "grasp" and primitive != "ungrasp"):
-        print("none of above 4")
+    elif (primitive != "move" and primitive != "reach" and primitive != "grasp" and primitive != "ungrasp"):
         my_file.write(f"""
 if taskDefinition["object"] == "urn:ngsi-ld:TaskDefinition:siemens:Activity{act_id}":  
     rospy.loginfo("Task {act_name} with the ID: {act_id} in progress.")

@@ -1,25 +1,17 @@
-import json
-
-input_file = 'BPMNfile.json'
-
-my_file = open(input_file.replace('.json', '.py'), "w")
-f = open(input_file)
-data = json.load(f)
- 
-def substitute(act_name, act_id, obj_name, obj_id, primitive):
+def substitute(act_name, act_id, obj_name, obj_id, primitive, my_file):
     if (obj_name == "2 finger gripper"):
-        finger_gripper = True; 
-        act_module = False; 
-    elif (obj_name=="vacuum gripper"):
-        finger_gripper = False; 
-        act_module = True; 
-    else: 
-        #default values
-        finger_gripper = False; 
-        act_module = False; 
+        finger_gripper = True;
+        act_module = False;
+    elif (obj_name == "vacuum gripper"):
+        finger_gripper = False;
+        act_module = True;
+    else:
+        # default values
+        finger_gripper = False;
+        act_module = False;
 
-  # MOVE/REACH with screw object
-    if((primitive=="move" or primitive =="reach") and obj_name=="screw"):
+        # MOVE/REACH with screw object
+    if ((primitive == "move" or primitive == "reach") and obj_name == "screw"):
         print("move/reach + screw")
         my_file.write(f"""
 if taskDefinition["object"] == "urn:ngsi-ld:TaskDefinition:siemens:Activity{act_id}":
@@ -40,12 +32,12 @@ if taskDefinition["object"] == "urn:ngsi-ld:TaskDefinition:siemens:Activity{act_
     taskStatus["value"] = "inProgress"
     taskStatus["observedAt"] = datetime.now().strftime("%Y-%m-%dT%H:%M:%SZ")        
         """)
-        
-    if(primitive=="grasp"):
-        print("grasp")
+
         # GRASP
         # If the object connected is a 2 finger gripper the parameter to be changes is "grasp"
         # if it is something else the parameter to be changed is "activatemodule"
+    if (primitive == "grasp"):
+        print("grasp")
         my_file.write(f"""
 if taskDefinition["object"] == "urn:ngsi-ld:TaskDefinition:siemens:Activity{act_id}":  
         rospy.loginfo("Task {act_name} with the ID: {act_id} in progress.")
@@ -65,7 +57,7 @@ if taskDefinition["object"] == "urn:ngsi-ld:TaskDefinition:siemens:Activity{act_
         # UNGRASP
         # If the object connected is a 2 finger gripper the parameter to be changes is "grasp"
         # if it is something else the parameter to be changed is "activatemodule"
-    if(primitive=="ungrasp"):    
+    if (primitive == "ungrasp"):
         print("ungrasp")
         my_file.write(f"""
 if taskDefinition["object"] == "urn:ngsi-ld:TaskDefinition:siemens:Activity{act_id}":  
@@ -83,10 +75,10 @@ if taskDefinition["object"] == "urn:ngsi-ld:TaskDefinition:siemens:Activity{act_
     taskStatus["observedAt"] = datetime.now().strftime("%Y-%m-%dT%H:%M:%SZ")
             """)
 
-        # MOVE/REACH wit nut object
-    if((primitive=="move" or primitive =="reach") and obj_name=="nut"):
-            print("move/reach + nut")
-            my_file.write(f"""
+        # MOVE/REACH with nut object
+    if ((primitive == "move" or primitive == "reach") and obj_name == "nut"):
+        print("move/reach + nut")
+        my_file.write(f"""
 if taskDefinition["object"] == "urn:ngsi-ld:TaskDefinition:siemens:Activity{act_id}":
     rospy.loginfo("Task {act_name} with the ID: {act_id} and nut object: {obj_id} in progress.")
     # Here goes the action calling for the precise task definition
@@ -106,7 +98,7 @@ if taskDefinition["object"] == "urn:ngsi-ld:TaskDefinition:siemens:Activity{act_
     taskStatus["observedAt"] = datetime.now().strftime("%Y-%m-%dT%H:%M:%SZ")
                 """)
 
-    if(primitive!="move" and primitive !="reach" and primitive != "grasp" and primitive != "ungrasp"):
+    if (primitive != "move" and primitive != "reach" and primitive != "grasp" and primitive != "ungrasp"):
         print("none of above 4")
         my_file.write(f"""
 if taskDefinition["object"] == "urn:ngsi-ld:TaskDefinition:siemens:Activity{act_id}":  
@@ -120,12 +112,3 @@ if taskDefinition["object"] == "urn:ngsi-ld:TaskDefinition:siemens:Activity{act_
     taskStatus["value"] = "inProgress"
     taskStatus["observedAt"] = datetime.now().strftime("%Y-%m-%dT%H:%M:%SZ") 
     """)
-
-for i in data['activities']:
-    substitute(i['act_name'], i['act_id'], i['obj_name'], i['obj_id'], i['primitive'])      
-    #substitute(act_name, act_id, obj_name, obj_id, primitive):  
-
-my_file = open("ROSready.py")
-content = my_file.read()
-my_file.close()
-

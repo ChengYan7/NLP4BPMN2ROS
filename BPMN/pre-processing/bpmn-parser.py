@@ -1,15 +1,16 @@
 import os
 import json 
 from xml.dom import minidom
-from xml.dom.minidom import Node
+from xml.dom.minidom import parseString
 from BPMNdictionary import BPMNdict
 
 #name of the file - activate the file by switching to filename1
 filename1 = "UC3_inspection.bpmn"
+filename = "UC1_CS_relocate_baseplate_components_v001.bpmn" #only robot
+filename1 = "UC1_CS_lightbarrier_subassembly_v003.bpmn" #operator 
 filename ="UC2_sorting_freedrive_remake_v1.10.bpmn"
 filename = "bpmnExamplewith3bubbles.bpmn"
 filename= "C:\\Users\\Admin\\Documents\\GitHub\\HumanCenteredRobotics_Project\\BPMN\\pre-processing\\bpmnExamplewith3bubbles.bpmn"
-
 #functions definitions 
 def checkFile(filename):
     """
@@ -103,24 +104,47 @@ def dictionary(inputArr, dictionary, nreplace = 1):
 file = readXmlFile(filename1)
 
 #definitions of tags to be extracted from the XML file
-activities = file.getElementsByTagName('bpmn:serviceTask')
 lane = file.getElementsByTagName('bpmn:lane')
 objRef= file.getElementsByTagName('bpmn:dataObjectReference') #uses the id  attribute to find the tag and extract the name of element from it
 
+nodeAct = []
 actRefArr = []
 actObjArr = []
+flag = True
+activity = True
 
 for i in lane:
-    if (i.attributes['name'].value.lower() == "robot"): #robot lane
-        if activities: 
-            for activity in activities:
-                association = activity.getElementsByTagName("bpmn:dataInputAssociation")
-                if association:
-                    for sourceRef in association:
-                        actRefArr.append([activity.attributes['id'].value.lower(), activity.attributes['name'].value.lower(), sourceRef.getElementsByTagName("bpmn:sourceRef")[0].firstChild.nodeValue, 'obj_placeholder'])
-                else:
-                    actRefArr.append([activity.attributes['id'].value.lower(), activity.attributes['name'].value.lower(), 'None', 'None'])
+    
+    if i.attributes['name'].value.lower() == "robot": #robot lane:
+        flag = False
+        flowNodeRef = i.getElementsByTagName('bpmn:flowNodeRef')
+        for f in flowNodeRef: #robot lane but no 
+            if "activity" in f.firstChild.data.lower():
+                activity = False
+                nodeAct.append(f.firstChild.data)
+            elif activity: 
+                nodeAct.append(f.firstChild.data)
+    elif flag:
+        flowNodeRef = i.getElementsByTagName('bpmn:flowNodeRef')
+        for f in flowNodeRef:
+            print("operator, no robot")
+            nodeAct.append(f.firstChild.data)
 
+for j in nodeAct:
+    print(j)
+
+
+
+
+"""
+for activity in activities:
+    association = activity.getElementsByTagName("bpmn:dataInputAssociation")
+    if association:
+        for sourceRef in association:
+            actRefArr.append([activity.attributes['id'].value.lower(), activity.attributes['name'].value.lower(), sourceRef.getElementsByTagName("bpmn:sourceRef")[0].firstChild.nodeValue, 'obj_placeholder'])
+    else:
+        actRefArr.append([activity.attributes['id'].value.lower(), activity.attributes['name'].value.lower(), 'None', 'None'])
+"""
 
 objNameIdPairs = { k.attributes['id'].value : k.attributes['name'].value.lower() for k in objRef}
 actObjFullArr = []

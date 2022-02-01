@@ -1,0 +1,81 @@
+{
+    "activities": [
+        {
+            "act_id": "activity_0koa7o9",
+            "act_name": "reach motorholder",
+            "obj_id": "None",
+            "obj_name": "None",
+            "primitive": "Reach"
+        },
+        {
+            "act_id": "activity_15ti3ns",
+            "act_name": "move motor holder",
+            "obj_id": "DataObjectReference_1j9wct5",
+            "obj_name": "motor_holder",
+            "primitive": "Move"
+        },
+        {
+            "act_id": "activity_15ti3ns",
+            "act_name": "move motor holder",
+            "obj_id": "DataObjectReference_0x05vmw",
+            "obj_name": "gripper",
+            "primitive": "Move"
+        },
+        {
+            "act_id": "activity_0ebmhpg",
+            "act_name": "grasp motor holder",
+            "obj_id": "DataObjectReference_1j9wct5",
+            "obj_name": "motor_holder",
+            "primitive": "Grasp"
+        },
+        {
+            "act_id": "activity_0ebmhpg",
+            "act_name": "grasp motor holder",
+            "obj_id": "DataObjectReference_0x05vmw",
+            "obj_name": "gripper",
+            "primitive": "Grasp"
+        },
+        {
+            "act_id": "activity_0nzm39u",
+            "act_name": "move transmission gear and motor holder",
+            "obj_id": "DataObjectReference_1j9wct5",
+            "obj_name": "motor_holder",
+            "primitive": "Move"
+        },
+        {
+            "act_id": "activity_0nzm39u",
+            "act_name": "move transmission gear and motor holder",
+            "obj_id": "DataObjectReference_1vj5y98",
+            "obj_name": "transmission_gear",
+            "primitive": "Move"
+        },
+        {
+            "act_id": "activity_0nzm39u",
+            "act_name": "move transmission gear and motor holder",
+            "obj_id": "DataObjectReference_0x05vmw",
+            "obj_name": "gripper",
+            "primitive": "Move"
+        },
+        {
+            "act_id": "activity_0gl2m19",
+            "act_name": "release transmission gear and motor holder",
+            "obj_id": "DataObjectReference_0x05vmw",
+            "obj_name": "gripper",
+            "primitive": "Release"
+        },
+        {
+            "act_id": "activity_0gl2m19",
+            "act_name": "release transmission gear and motor holder",
+            "obj_id": "DataObjectReference_1j9wct5",
+            "obj_name": "motor_holder",
+            "primitive": "Release"
+        },
+        {
+            "act_id": "activity_0gl2m19",
+            "act_name": "release transmission gear and motor holder",
+            "obj_id": "DataObjectReference_1vj5y98",
+            "obj_name": "transmission_gear",
+            "primitive": "Release"
+        }
+    ]
+}

@@ -24,7 +24,8 @@ filename1 = "UC1_CS_Clip_MotorGear2MotorAssembly1.bpmn" #works fine
 filename1="UC1_CS_PickAndPlace_Baseplate.bpmn" #works fine
 filename1 = "UC1_CS_Clip_Lightbarrier2LightbarrierHolder.bpmn"
 filename1 = "UC1_CS_Clip_TransmissionGear2MotorHolder.bpmn" #ok after Uppercase 
-print(filename1)
+
+
 def main():
     """
     1. exact the text in BPMN

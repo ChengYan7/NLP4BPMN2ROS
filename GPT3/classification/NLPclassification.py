@@ -1,5 +1,4 @@
-﻿import numpy as np
-import re
+﻿import re
 import openai
 openai.api_key = "API"      # enter your API for GPT-3 here
 import json
@@ -79,13 +78,19 @@ BPMN = open("..\BPMNfile.json", )
 # returns JSON object as a dictionary
 data = json.load(BPMN)
 
+
 # get all action names
 for i in data["activities"]:
     # get each search result by GPT-3
-    classification_results = nlp_classification_results(i['act_name'], "file-I2XzSpsdqtEDxe4sMOcH87UH")
     # get corresponding command as primitive
-    dict = i
-    dict["primitive"] = corr_label(classification_results)
+    try:
+        classification_results = nlp_classification_results(i['act_name'], "file-I2XzSpsdqtEDxe4sMOcH87UH")
+        dict = i
+        dict["primitive"] = corr_label(classification_results)
+    except:
+        dict["primitive"] = "No corresponding primitive"
+
+
 
     # write the corresponding "primitive" in to BPMN file.json
     # json.dump(dict)
@@ -94,6 +99,7 @@ for i in data["activities"]:
     print(i["act_name"])
     # print primitive
     print(dict["primitive"])
+
 
 # Closing file
 BPMN.close()

@@ -59,11 +59,15 @@ def main():
     JSONdata = {}
     JSONdata['activities'] = []
     for i in preprocessedAct:
-        # get each classification result by GPT-3
-        classification_results = nlp_classification_results(i[1], "file-I2XzSpsdqtEDxe4sMOcH87UH")
-        # get corresponding command as primitive
-        primitive = corr_label(classification_results)
-        print(primitive)
+
+        try:
+            # get each classification result by GPT-3
+            classification_results = nlp_classification_results(i[1], "file-I2XzSpsdqtEDxe4sMOcH87UH")
+            # get corresponding command as primitive
+            primitive = corr_label(classification_results)
+        except:
+            primitive = "No corresponding primitive"
+
         JSONdata['activities'].append(
             {
             'act_id': i[0],

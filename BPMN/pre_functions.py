@@ -1,5 +1,6 @@
 from xml.dom import minidom
 import os
+import re
 
 def checkFile(filename):
     """
@@ -94,3 +95,79 @@ def dictionary(inputArr, dictionary, nreplace=1):
                         inputArr[control_var][nreplace] = str
         control_var += 1
     return inputArr
+
+def checkLanes(lane):
+    """
+    Function to check the actors of all the lanes
+
+    Args:
+    lane - Tag Name of the xml tree element to check
+
+    Output: 
+    arr - arr with actors' names
+    
+    """
+    arr = []
+    for k in lane:
+        arr.append(k.attributes['name'].value.lower()) 
+    return arr
+
+
+def getActivities(lane, actRefArr, file):
+    """
+    Function to control the flow of information extraction from BPMN, 3 possible scenarios:
+    1. Robot lane exists and contains activities 
+    2. Robot lane exists and is empty in such case we check for the operator lane:
+        2.1 Operator lane exists and the extraction of information will focus on the operator lane
+        2.2 Operator lane exists and no information --> raise Exception
+    3. Robot lane doesn't exist --> raise Exception
+        3.1 Operator lane exists and the extraction of information will focus on the operator lane
+        3.2 Operator lane exists and no information --> raise Exception
+        
+    
+    """
+    lanesArr = checkLanes(lane)
+    if "robot" in lanesArr:
+       activities = file.getElementsByTagName('bpmn:serviceTask')
+       print("robot act")
+       if not activities: #if the robot lane is empty 
+           print("nothing in act")
+           if "operator" in lanesArr: #check the operator lane
+               print("operator in lane")
+               activities = file.getElementsByTagName('bpmn:userTask')
+               if not activities:
+                   raise Exception("Both robot and operator lane are empty, exiting the program.")
+    elif "operator" in lanesArr:
+        print("only operator")
+
+    for i in lane:
+        if (i.attributes['name'].value.lower() == "robot"):  # robot lane
+            print(activities)
+            for activity in activities:
+                association = activity.getElementsByTagName("bpmn:dataInputAssociation")
+                if association:
+                    
+                    for sourceRef in association:
+                        
+                        #add spacing between uppercase words if no spacing provided
+                        activity_modified =re.sub(r'(?P<end>[a-z])(?P<start>[A-Z])', '\g<end> \g<start>', 
+                        activity.attributes['name'].value)
+                        
+                        #create array containing act_id, act_name, obj_id and placeholder for obj_name
+                        actRefArr.append(
+                            [activity.attributes['id'].value.lower(), activity_modified.lower(),
+                            sourceRef.getElementsByTagName("bpmn:sourceRef")[0].firstChild.nodeValue,
+                            'obj_placeholder']) 
+                else:
+                    
+                    actRefArr.append(
+                        [activity.attributes['id'].value.lower(), activity.attributes['name'].value.lower(), 'None',
+                        'None'])
+        else:
+            print("   ")
+            #print("No robot lane")
+    if actRefArr:
+        print("Activities array - success")   
+    #else:
+    #    raise Exception("Activities array - empty")                  
+    return actRefArr

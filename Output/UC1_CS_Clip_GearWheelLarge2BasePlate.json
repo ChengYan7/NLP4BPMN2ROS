@@ -1,0 +1,32 @@
+{
+    "activities": [
+        {
+            "act_id": "activity_11fiqbb",
+            "act_name": "reach gearwheel large",
+            "obj_id": "None",
+            "obj_name": "None",
+            "primitive": "Reach"
+        },
+        {
+            "act_id": "activity_1uwgc5r",
+            "act_name": "grasp gear wheel large",
+            "obj_id": "DataObjectReference_1vj5y98",
+            "obj_name": "gearwheel_large",
+            "primitive": "Grasp"
+        },
+        {
+            "act_id": "activity_03afyx2",
+            "act_name": "clip gear wheel large",
+            "obj_id": "DataObjectReference_1vj5y98",
+            "obj_name": "gearwheel_large",
+            "primitive": "undefined"
+        },
+        {
+            "act_id": "activity_03afyx2",
+            "act_name": "clip gear wheel large",
+            "obj_id": "DataObjectReference_0lvi96b",
+            "obj_name": "baseplate",
+            "primitive": "undefined"
+        }
+    ]
+}

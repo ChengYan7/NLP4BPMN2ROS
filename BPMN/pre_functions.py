@@ -137,12 +137,11 @@ def getActivities(lane, actRefArr, file):
                activities = file.getElementsByTagName('bpmn:userTask')
                if not activities:
                    raise Exception("Both robot and operator lane are empty, exiting the program.")
-    elif ("operator" in lanesArr and "robot" not in lanesArr:
+    elif ("operator" in lanesArr and "robot" not in lanesArr):
         print("only operator")
 
     for i in lane:
         if (i.attributes['name'].value.lower() == "robot"):  # robot lane
-            print(activities)
             for activity in activities:
                 association = activity.getElementsByTagName("bpmn:dataInputAssociation")
                 if association:

@@ -1,0 +1,60 @@
+{
+    "activities": [
+        {
+            "act_id": "activity_0gtzas4",
+            "act_name": "reach lightbarrier assembly0",
+            "obj_id": "None",
+            "obj_name": "None",
+            "primitive": "Reach"
+        },
+        {
+            "act_id": "activity_1xw8eyr",
+            "act_name": "grasp lightbarrier assembly0",
+            "obj_id": "DataObjectReference_0h5409w",
+            "obj_name": "lightbarrier_assembly0",
+            "primitive": "Grasp"
+        },
+        {
+            "act_id": "activity_1aer0zp",
+            "act_name": "clip lightbarrier assembly0 and baseplate",
+            "obj_id": "DataObjectReference_0h5409w",
+            "obj_name": "lightbarrier_assembly0",
+            "primitive": "No corresponding primitive"
+        },
+        {
+            "act_id": "activity_1aer0zp",
+            "act_name": "clip lightbarrier assembly0 and baseplate",
+            "obj_id": "DataObjectReference_12ionue",
+            "obj_name": "base_plate",
+            "primitive": "No corresponding primitive"
+        },
+        {
+            "act_id": "activity_1mu905z",
+            "act_name": "move lightbarrier assembly0 and baseplate",
+            "obj_id": "DataObjectReference_0h5409w",
+            "obj_name": "lightbarrier_assembly0",
+            "primitive": "Move"
+        },
+        {
+            "act_id": "activity_1mu905z",
+            "act_name": "move lightbarrier assembly0 and baseplate",
+            "obj_id": "DataObjectReference_12ionue",
+            "obj_name": "base_plate",
+            "primitive": "Move"
+        },
+        {
+            "act_id": "activity_1hfjkl7",
+            "act_name": "release lightbarrier assembly0 and baseplate",
+            "obj_id": "DataObjectReference_0h5409w",
+            "obj_name": "lightbarrier_assembly0",
+            "primitive": "Release"
+        },
+        {
+            "act_id": "activity_1hfjkl7",
+            "act_name": "release lightbarrier assembly0 and baseplate",
+            "obj_id": "DataObjectReference_12ionue",
+            "obj_name": "base_plate",
+            "primitive": "Release"
+        }
+    ]
+}

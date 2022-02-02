@@ -1,0 +1,74 @@
+{
+    "activities": [
+        {
+            "act_id": "activity_0koa7o9",
+            "act_name": "reach motor",
+            "obj_id": "None",
+            "obj_name": "None",
+            "primitive": "Reach"
+        },
+        {
+            "act_id": "activity_15ti3ns",
+            "act_name": "move motor",
+            "obj_id": "DataObjectReference_1j9wct5",
+            "obj_name": "motor",
+            "primitive": "Move"
+        },
+        {
+            "act_id": "activity_15ti3ns",
+            "act_name": "move motor",
+            "obj_id": "DataObjectReference_0x05vmw",
+            "obj_name": "gripper",
+            "primitive": "Move"
+        },
+        {
+            "act_id": "activity_0ebmhpg",
+            "act_name": "grasp motor",
+            "obj_id": "DataObjectReference_1j9wct5",
+            "obj_name": "motor",
+            "primitive": "Grasp"
+        },
+        {
+            "act_id": "activity_0ebmhpg",
+            "act_name": "grasp motor",
+            "obj_id": "DataObjectReference_0x05vmw",
+            "obj_name": "gripper",
+            "primitive": "Grasp"
+        },
+        {
+            "act_id": "activity_0vzrvtp",
+            "act_name": "move motor assembly0 and motor",
+            "obj_id": "DataObjectReference_1j9wct5",
+            "obj_name": "motor",
+            "primitive": "Move"
+        },
+        {
+            "act_id": "activity_0vzrvtp",
+            "act_name": "move motor assembly0 and motor",
+            "obj_id": "DataObjectReference_1vj5y98",
+            "obj_name": "motor_assembly0",
+            "primitive": "Move"
+        },
+        {
+            "act_id": "activity_068759n",
+            "act_name": "release motor assembly0 and motor",
+            "obj_id": "DataObjectReference_1j9wct5",
+            "obj_name": "motor",
+            "primitive": "Release"
+        },
+        {
+            "act_id": "activity_068759n",
+            "act_name": "release motor assembly0 and motor",
+            "obj_id": "DataObjectReference_1vj5y98",
+            "obj_name": "motor_assembly0",
+            "primitive": "Release"
+        },
+        {
+            "act_id": "activity_068759n",
+            "act_name": "release motor assembly0 and motor",
+            "obj_id": "DataObjectReference_0x05vmw",
+            "obj_name": "gripper",
+            "primitive": "Release"
+        }
+    ]
+}

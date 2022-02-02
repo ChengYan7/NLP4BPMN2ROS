@@ -1,0 +1,60 @@
+{
+    "activities": [
+        {
+            "act_id": "activity_0koa7o9",
+            "act_name": "reach motor",
+            "obj_id": "None",
+            "obj_name": "None",
+            "primitive": "Reach"
+        },
+        {
+            "act_id": "activity_0ebmhpg",
+            "act_name": "grasp motor assembly1",
+            "obj_id": "DataObjectReference_1j9wct5",
+            "obj_name": "motor_assembly1",
+            "primitive": "Grasp"
+        },
+        {
+            "act_id": "activity_0ebmhpg",
+            "act_name": "grasp motor assembly1",
+            "obj_id": "DataObjectReference_0x05vmw",
+            "obj_name": "gripper",
+            "primitive": "Grasp"
+        },
+        {
+            "act_id": "activity_0vzrvtp",
+            "act_name": "move motor assembly1 and motor gear",
+            "obj_id": "DataObjectReference_1j9wct5",
+            "obj_name": "motor_assembly1",
+            "primitive": "Move"
+        },
+        {
+            "act_id": "activity_0vzrvtp",
+            "act_name": "move motor assembly1 and motor gear",
+            "obj_id": "DataObjectReference_1vj5y98",
+            "obj_name": "motor_gear",
+            "primitive": "Move"
+        },
+        {
+            "act_id": "activity_068759n",
+            "act_name": "release motor assembly1 and motor gear",
+            "obj_id": "DataObjectReference_1j9wct5",
+            "obj_name": "motor_assembly1",
+            "primitive": "Release"
+        },
+        {
+            "act_id": "activity_068759n",
+            "act_name": "release motor assembly1 and motor gear",
+            "obj_id": "DataObjectReference_1vj5y98",
+            "obj_name": "motor_gear",
+            "primitive": "Release"
+        },
+        {
+            "act_id": "activity_068759n",
+            "act_name": "release motor assembly1 and motor gear",
+            "obj_id": "DataObjectReference_0x05vmw",
+            "obj_name": "gripper",
+            "primitive": "Release"
+        }
+    ]
+}

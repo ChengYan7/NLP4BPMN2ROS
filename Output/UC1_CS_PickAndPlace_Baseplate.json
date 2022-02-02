@@ -1,0 +1,53 @@
+{
+    "activities": [
+        {
+            "act_id": "activity_03afyx2",
+            "act_name": "move base plate",
+            "obj_id": "DataObjectReference_1nuy3e7",
+            "obj_name": "gripper",
+            "primitive": "Move"
+        },
+        {
+            "act_id": "activity_03afyx2",
+            "act_name": "move base plate",
+            "obj_id": "DataObjectReference_1vj5y98",
+            "obj_name": "base_plate",
+            "primitive": "Move"
+        },
+        {
+            "act_id": "activity_11fiqbb",
+            "act_name": "reach base plate",
+            "obj_id": "None",
+            "obj_name": "None",
+            "primitive": "Reach"
+        },
+        {
+            "act_id": "activity_1uwgc5r",
+            "act_name": "grasp base plate",
+            "obj_id": "DataObjectReference_1nuy3e7",
+            "obj_name": "gripper",
+            "primitive": "Grasp"
+        },
+        {
+            "act_id": "activity_1uwgc5r",
+            "act_name": "grasp base plate",
+            "obj_id": "DataObjectReference_1vj5y98",
+            "obj_name": "base_plate",
+            "primitive": "Grasp"
+        },
+        {
+            "act_id": "activity_0cuizk7",
+            "act_name": "release base plate",
+            "obj_id": "DataObjectReference_1vj5y98",
+            "obj_name": "base_plate",
+            "primitive": "Release"
+        },
+        {
+            "act_id": "activity_0cuizk7",
+            "act_name": "release base plate",
+            "obj_id": "DataObjectReference_1nuy3e7",
+            "obj_name": "gripper",
+            "primitive": "Release"
+        }
+    ]
+}

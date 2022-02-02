@@ -1,0 +1,319 @@
+{
+    "activities": [
+        {
+            "act_id": "activity_11fiqbb",
+            "act_name": "reach base plate",
+            "obj_id": "None",
+            "obj_name": "None",
+            "primitive": "Reach"
+        },
+        {
+            "act_id": "activity_1uwgc5r",
+            "act_name": "grasp baseplate",
+            "obj_id": "DataObjectReference_1nuy3e7",
+            "obj_name": "gripper",
+            "primitive": "Grasp"
+        },
+        {
+            "act_id": "activity_1uwgc5r",
+            "act_name": "grasp baseplate",
+            "obj_id": "DataObjectReference_1vj5y98",
+            "obj_name": "base_plate",
+            "primitive": "Grasp"
+        },
+        {
+            "act_id": "activity_03afyx2",
+            "act_name": "move baseplate",
+            "obj_id": "DataObjectReference_1nuy3e7",
+            "obj_name": "gripper",
+            "primitive": "Move"
+        },
+        {
+            "act_id": "activity_03afyx2",
+            "act_name": "move baseplate",
+            "obj_id": "DataObjectReference_1vj5y98",
+            "obj_name": "base_plate",
+            "primitive": "Move"
+        },
+        {
+            "act_id": "activity_0cuizk7",
+            "act_name": "release baseplate",
+            "obj_id": "DataObjectReference_1vj5y98",
+            "obj_name": "base_plate",
+            "primitive": "Release"
+        },
+        {
+            "act_id": "activity_0cuizk7",
+            "act_name": "release baseplate",
+            "obj_id": "DataObjectReference_1nuy3e7",
+            "obj_name": "gripper",
+            "primitive": "Release"
+        },
+        {
+            "act_id": "activity_007qjvu",
+            "act_name": "reach motorholder",
+            "obj_id": "None",
+            "obj_name": "None",
+            "primitive": "Reach"
+        },
+        {
+            "act_id": "activity_1i5rkzm",
+            "act_name": "move motor holder",
+            "obj_id": "DataObjectReference_16f9rti",
+            "obj_name": "motor_holder",
+            "primitive": "Move"
+        },
+        {
+            "act_id": "activity_1i5rkzm",
+            "act_name": "move motor holder",
+            "obj_id": "DataObjectReference_1nuy3e7",
+            "obj_name": "gripper",
+            "primitive": "Move"
+        },
+        {
+            "act_id": "activity_0a2t5t0",
+            "act_name": "grasp motor holder",
+            "obj_id": "DataObjectReference_16f9rti",
+            "obj_name": "motor_holder",
+            "primitive": "Grasp"
+        },
+        {
+            "act_id": "activity_0a2t5t0",
+            "act_name": "grasp motor holder",
+            "obj_id": "DataObjectReference_1nuy3e7",
+            "obj_name": "gripper",
+            "primitive": "Grasp"
+        },
+        {
+            "act_id": "activity_0ebqvso",
+            "act_name": "move transmission gear and motor holder",
+            "obj_id": "DataObjectReference_0pg912y",
+            "obj_name": "transmission_gear",
+            "primitive": "Move"
+        },
+        {
+            "act_id": "activity_0ebqvso",
+            "act_name": "move transmission gear and motor holder",
+            "obj_id": "DataObjectReference_16f9rti",
+            "obj_name": "motor_holder",
+            "primitive": "Move"
+        },
+        {
+            "act_id": "activity_0ebqvso",
+            "act_name": "move transmission gear and motor holder",
+            "obj_id": "DataObjectReference_1nuy3e7",
+            "obj_name": "gripper",
+            "primitive": "Move"
+        },
+        {
+            "act_id": "activity_1vv7b7o",
+            "act_name": "release transmission gear and motor holder",
+            "obj_id": "DataObjectReference_0pg912y",
+            "obj_name": "transmission_gear",
+            "primitive": "Release"
+        },
+        {
+            "act_id": "activity_1vv7b7o",
+            "act_name": "release transmission gear and motor holder",
+            "obj_id": "DataObjectReference_16f9rti",
+            "obj_name": "motor_holder",
+            "primitive": "Release"
+        },
+        {
+            "act_id": "activity_1vv7b7o",
+            "act_name": "release transmission gear and motor holder",
+            "obj_id": "DataObjectReference_1nuy3e7",
+            "obj_name": "gripper",
+            "primitive": "Release"
+        },
+        {
+            "act_id": "activity_0eh4xhq",
+            "act_name": "reach motor",
+            "obj_id": "None",
+            "obj_name": "None",
+            "primitive": "Reach"
+        },
+        {
+            "act_id": "activity_1q6l3tk",
+            "act_name": "move motor",
+            "obj_id": "DataObjectReference_0pxwjk6",
+            "obj_name": "motor",
+            "primitive": "Move"
+        },
+        {
+            "act_id": "activity_1q6l3tk",
+            "act_name": "move motor",
+            "obj_id": "DataObjectReference_1nuy3e7",
+            "obj_name": "gripper",
+            "primitive": "Move"
+        },
+        {
+            "act_id": "activity_0gs1quv",
+            "act_name": "grasp motor",
+            "obj_id": "DataObjectReference_0pxwjk6",
+            "obj_name": "motor",
+            "primitive": "Grasp"
+        },
+        {
+            "act_id": "activity_0gs1quv",
+            "act_name": "grasp motor",
+            "obj_id": "DataObjectReference_1nuy3e7",
+            "obj_name": "gripper",
+            "primitive": "Grasp"
+        },
+        {
+            "act_id": "activity_1rrxkmv",
+            "act_name": "move motor assembly0 and motor",
+            "obj_id": "DataObjectReference_08y7jsl",
+            "obj_name": "motor_assembly0",
+            "primitive": "Move"
+        },
+        {
+            "act_id": "activity_1rrxkmv",
+            "act_name": "move motor assembly0 and motor",
+            "obj_id": "DataObjectReference_0pxwjk6",
+            "obj_name": "motor",
+            "primitive": "Move"
+        },
+        {
+            "act_id": "activity_1rrxkmv",
+            "act_name": "move motor assembly0 and motor",
+            "obj_id": "DataObjectReference_1nuy3e7",
+            "obj_name": "gripper",
+            "primitive": "Move"
+        },
+        {
+            "act_id": "activity_0szgfm1",
+            "act_name": "release motor assembly0 and motor",
+            "obj_id": "DataObjectReference_08y7jsl",
+            "obj_name": "motor_assembly0",
+            "primitive": "Release"
+        },
+        {
+            "act_id": "activity_0szgfm1",
+            "act_name": "release motor assembly0 and motor",
+            "obj_id": "DataObjectReference_0pxwjk6",
+            "obj_name": "motor",
+            "primitive": "Release"
+        },
+        {
+            "act_id": "activity_0szgfm1",
+            "act_name": "release motor assembly0 and motor",
+            "obj_id": "DataObjectReference_1nuy3e7",
+            "obj_name": "gripper",
+            "primitive": "Release"
+        },
+        {
+            "act_id": "activity_1v4qvbr",
+            "act_name": "reach motor",
+            "obj_id": "None",
+            "obj_name": "None",
+            "primitive": "Reach"
+        },
+        {
+            "act_id": "activity_1b2mptw",
+            "act_name": "grasp motor assembly1",
+            "obj_id": "DataObjectReference_1phbnph",
+            "obj_name": "motor_assembly1",
+            "primitive": "Grasp"
+        },
+        {
+            "act_id": "activity_1b2mptw",
+            "act_name": "grasp motor assembly1",
+            "obj_id": "DataObjectReference_1nuy3e7",
+            "obj_name": "gripper",
+            "primitive": "Grasp"
+        },
+        {
+            "act_id": "activity_0brjnhs",
+            "act_name": "move motor assembly1 and motor gear",
+            "obj_id": "DataObjectReference_149y9zv",
+            "obj_name": "motor_gear",
+            "primitive": "Move"
+        },
+        {
+            "act_id": "activity_0brjnhs",
+            "act_name": "move motor assembly1 and motor gear",
+            "obj_id": "DataObjectReference_1phbnph",
+            "obj_name": "motor_assembly1",
+            "primitive": "Move"
+        },
+        {
+            "act_id": "activity_0brjnhs",
+            "act_name": "move motor assembly1 and motor gear",
+            "obj_id": "DataObjectReference_1nuy3e7",
+            "obj_name": "gripper",
+            "primitive": "Move"
+        },
+        {
+            "act_id": "activity_1xt83aa",
+            "act_name": "release motor assembly1 and motor gear",
+            "obj_id": "DataObjectReference_149y9zv",
+            "obj_name": "motor_gear",
+            "primitive": "Release"
+        },
+        {
+            "act_id": "activity_1xt83aa",
+            "act_name": "release motor assembly1 and motor gear",
+            "obj_id": "DataObjectReference_1phbnph",
+            "obj_name": "motor_assembly1",
+            "primitive": "Release"
+        },
+        {
+            "act_id": "activity_1xt83aa",
+            "act_name": "release motor assembly1 and motor gear",
+            "obj_id": "DataObjectReference_1nuy3e7",
+            "obj_name": "gripper",
+            "primitive": "Release"
+        },
+        {
+            "act_id": "activity_05aav5x",
+            "act_name": "reach baseplate",
+            "obj_id": "None",
+            "obj_name": "None",
+            "primitive": "Reach"
+        },
+        {
+            "act_id": "activity_0of4w8h",
+            "act_name": "grasp base plate",
+            "obj_id": "DataObjectReference_1vj5y98",
+            "obj_name": "base_plate",
+            "primitive": "Grasp"
+        },
+        {
+            "act_id": "activity_0of4w8h",
+            "act_name": "grasp base plate",
+            "obj_id": "DataObjectReference_1nuy3e7",
+            "obj_name": "gripper",
+            "primitive": "Grasp"
+        },
+        {
+            "act_id": "activity_0aua5ph",
+            "act_name": "move base plate",
+            "obj_id": "DataObjectReference_1vj5y98",
+            "obj_name": "base_plate",
+            "primitive": "Move"
+        },
+        {
+            "act_id": "activity_0aua5ph",
+            "act_name": "move base plate",
+            "obj_id": "DataObjectReference_1nuy3e7",
+            "obj_name": "gripper",
+            "primitive": "Move"
+        },
+        {
+            "act_id": "activity_1bcv7ph",
+            "act_name": "release base plate",
+            "obj_id": "DataObjectReference_1vj5y98",
+            "obj_name": "base_plate",
+            "primitive": "Release"
+        },
+        {
+            "act_id": "activity_1bcv7ph",
+            "act_name": "release base plate",
+            "obj_id": "DataObjectReference_1nuy3e7",
+            "obj_name": "gripper",
+            "primitive": "Release"
+        }
+    ]
+}

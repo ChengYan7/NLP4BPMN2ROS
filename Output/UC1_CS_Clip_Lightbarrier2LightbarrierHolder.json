@@ -1,0 +1,67 @@
+{
+    "activities": [
+        {
+            "act_id": "activity_0gtzas4",
+            "act_name": "reach lightbarrier and lightbarrier holder",
+            "obj_id": "None",
+            "obj_name": "None",
+            "primitive": "Reach"
+        },
+        {
+            "act_id": "activity_1xw8eyr",
+            "act_name": "grasp lightbarrier and lightbarrier holder",
+            "obj_id": "DataObjectReference_0h5409w",
+            "obj_name": "lightbarrier",
+            "primitive": "Grasp"
+        },
+        {
+            "act_id": "activity_1xw8eyr",
+            "act_name": "grasp lightbarrier and lightbarrier holder",
+            "obj_id": "DataObjectReference_12ionue",
+            "obj_name": "lightbarrier_holder",
+            "primitive": "Grasp"
+        },
+        {
+            "act_id": "activity_1aer0zp",
+            "act_name": "clip lightbarrier and lightbarrier holder",
+            "obj_id": "DataObjectReference_0h5409w",
+            "obj_name": "lightbarrier",
+            "primitive": "undefined"
+        },
+        {
+            "act_id": "activity_1aer0zp",
+            "act_name": "clip lightbarrier and lightbarrier holder",
+            "obj_id": "DataObjectReference_12ionue",
+            "obj_name": "lightbarrier_holder",
+            "primitive": "undefined"
+        },
+        {
+            "act_id": "activity_1mu905z",
+            "act_name": "move lightbarrier and lightbarrier holder",
+            "obj_id": "DataObjectReference_0h5409w",
+            "obj_name": "lightbarrier",
+            "primitive": "Move"
+        },
+        {
+            "act_id": "activity_1mu905z",
+            "act_name": "move lightbarrier and lightbarrier holder",
+            "obj_id": "DataObjectReference_12ionue",
+            "obj_name": "lightbarrier_holder",
+            "primitive": "Move"
+        },
+        {
+            "act_id": "activity_1hfjkl7",
+            "act_name": "release lightbarrier and lightbarrier holder",
+            "obj_id": "DataObjectReference_0h5409w",
+            "obj_name": "lightbarrier",
+            "primitive": "Release"
+        },
+        {
+            "act_id": "activity_1hfjkl7",
+            "act_name": "release lightbarrier and lightbarrier holder",
+            "obj_id": "DataObjectReference_12ionue",
+            "obj_name": "lightbarrier_holder",
+            "primitive": "Release"
+        }
+    ]
+}

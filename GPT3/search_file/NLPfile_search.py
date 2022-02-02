@@ -80,11 +80,13 @@ data = json.load(BPMN)
 # get all action names
 for i in data["activities"]:
     # get each search result by GPT-3
-    search_response = nlp_search_results(i['act_name'], "file-kH1toOuo8l1SEfVR1mda5ZTP")
-    # get corresponding command as primitive
-    dict = i
-    dict["primitive"] = corr_text(search_response)
-
+    try:
+        search_response = nlp_search_results(i['act_name'], "file-kH1toOuo8l1SEfVR1mda5ZTP")
+        # get corresponding command as primitive
+        dict = i
+        dict["primitive"] = corr_text(search_response)
+    except:
+        dict["primitive"] = "No corresponding primitive"
     # write the corresponding "primitive" in to BPMN file.json
     # json.dump(dict)
 

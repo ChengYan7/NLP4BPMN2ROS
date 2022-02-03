@@ -6,9 +6,7 @@ from BPMN.BPMN_dict import BPMNdict
 from BPMN.pre_functions import dictionary, readXmlFile, getActivities
 from GPT3.NLP_functions import nlp_classification_results, corr_label 
 from ROS.writeROS_function import substitute
-"""
-We will try to integrate all the functions in this one function later
-"""
+
 
 # initialization
 openai.api_key = key  # enter your API for GPT-3 in the config file 
@@ -52,8 +50,7 @@ def main():
     
     actRefArr = []
     actRefArr = getActivities(lane, actRefArr, file)
-    for k in actRefArr:
-        print(k)
+
     objNameIdPairs = {k.attributes['id'].value: k.attributes['name'].value.lower() for k in objRef}
     
     actObjFullArr = []

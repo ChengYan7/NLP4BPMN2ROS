@@ -35,7 +35,7 @@ def main():
     """
     # 1. exact the text in BPMN
     # reads the XML file for the BPMN diagram specified in files.py
-    file = readXmlFile(file_dir + filename)
+    file = readXmlFile(file_dir + filename1)
 
     # definitions of tags to be extracted from the XML file
     lane = file.getElementsByTagName('bpmn:lane')

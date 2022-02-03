@@ -11,26 +11,16 @@ from ROS.writeROS_function import substitute
 # initialization
 openai.api_key = key  # enter your API for GPT-3 in the config file 
 
-
-# name of the file - activate the file by switching to filename1
-filename1 = "UC1_CS_Clip_Lightbarrier2LightbarrierHolder.bpmn"
-filename1 ="UC1_CS_Clip_BasePlate2MotorAssembly2.bpmn" #works fine
-filename1= "UC1_CS_Clip_Motor2MotorAssembly0.bpmn" #works fine
-filename1 = "UC1_CS_Clip_MotorGear2MotorAssembly1.bpmn" #works fine
-filename1="UC1_CS_PickAndPlace_Baseplate.bpmn" #works fine
-filename1 = "UC1_CS_Clip_Lightbarrier2LightbarrierHolder.bpmn" #parsing ok, not ok - clip #only operator lane
-filename = "UC1_CS_Clip_TransmissionGear2MotorHolder.bpmn" #not ok - clip
-
-
-filename1 ="UC1_CS_Clip_Baseplate2LightbarrierAssembly0.bpmn" #ok  
-filename1="UC1_CS_Clip_BasePlate2MotorAssembly2.bpmn" #ok 
-filename1 = "UC1_CS_Clip_GearWheelLarge2BasePlate.bpmn"
-filename1 = "UC1_CS_Clip_Lightbarrier2LightbarrierHolder.bpmn" #ok
-filename1= "UC1_CS_Clip_Motor2MotorAssembly0.bpmn" #ok
-filename1 = "UC1_CS_Clip_MotorGear2MotorAssembly1.bpmn" #ok
-filename1 ="UC1_CS_Clip_SupportWheel2BasePlate.bpmn"#ok
-filename1="UC1_CS_Clip_TransmissionGear2MotorHolder.bpmn"#ok
-filename1 = "UC1_CS_PickAndPlace_Baseplate.bpmn"#ok
+#switch to a file by using filename1
+filename ="UC1_CS_Clip_Baseplate2LightbarrierAssembly0.bpmn" #ok  
+filename="UC1_CS_Clip_BasePlate2MotorAssembly2.bpmn" #ok 
+filename = "UC1_CS_Clip_GearWheelLarge2BasePlate.bpmn"
+filename = "UC1_CS_Clip_Lightbarrier2LightbarrierHolder.bpmn" #ok
+filename= "UC1_CS_Clip_Motor2MotorAssembly0.bpmn" #ok
+filename = "UC1_CS_Clip_MotorGear2MotorAssembly1.bpmn" #ok
+filename ="UC1_CS_Clip_SupportWheel2BasePlate.bpmn"#ok
+filename="UC1_CS_Clip_TransmissionGear2MotorHolder.bpmn"#ok
+filename = "UC1_CS_PickAndPlace_Baseplate.bpmn"#ok
 filename1 = "UC1_PR_Assembly_GearBox.bpmn" #OKK!!!
 
 def main():

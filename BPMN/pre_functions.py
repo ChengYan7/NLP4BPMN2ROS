@@ -45,10 +45,6 @@ def readXmlFile(xmlFile):
     retVal = minidom.parse(xmlFile).documentElement
     return retVal
 
-
-
-
-
 def replace(nreplace, str, key):
     '''
     Function to replace nth word (nreplace) in a string (str) with a given word (key)
@@ -66,7 +62,6 @@ def replace(nreplace, str, key):
     words = str.split(" ")
     words = " ".join([words[word_index] if word_index != nreplace else key for word_index in range(len(words))])
     return words
-
 
 
 def dictionary(inputArr, dictionary, nreplace=1):
@@ -124,21 +119,25 @@ def getActivities(lane, actRefArr, file):
         3.1 Operator lane exists and the extraction of information will focus on the operator lane
         3.2 Operator lane exists and no information --> raise Exception
         
-    
+    Inputs:
+    - lane: xml element from which the items are extracted
+    - actRefArr - empty array to store information on act and references
+    - file - input file to parse
+
+    Returns:
+    - actRefArr - filled array with activity data, object reference (id) and placeholder for obj_name
     """
+    
     lanesArr = checkLanes(lane)
     if "robot" in lanesArr:
        activities = file.getElementsByTagName('bpmn:serviceTask')
-       print("robot act")
        if not activities: #if the robot lane is empty 
-           print("nothing in act")
            if "operator" in lanesArr: #check the operator lane
-               print("operator in lane")
                activities = file.getElementsByTagName('bpmn:userTask')
                if not activities:
                    raise Exception("Both robot and operator lane are empty, exiting the program.")
-    elif ("operator" in lanesArr and "robot" not in lanesArr):
-        print("only operator")
+    elif ("operator" not in lanesArr and "robot" not in lanesArr):
+        raise Exception("Both robot and operator lane do not exist, exiting the program.")
 
     for i in lane:
         if (i.attributes['name'].value.lower() == "robot"):  # robot lane
@@ -162,11 +161,6 @@ def getActivities(lane, actRefArr, file):
                     actRefArr.append(
                         [activity.attributes['id'].value.lower(), activity.attributes['name'].value.lower(), 'None',
                         'None'])
-        else:
-            print("   ")
-            #print("No robot lane")
     if actRefArr:
-        print("Activities array - success")   
-    #else:
-    #    raise Exception("Activities array - empty")                  
+        print("Activities array - success")                    
     return actRefArr

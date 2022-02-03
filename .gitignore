@@ -1,6 +1,11 @@
 config.py
-/NLP4BPMN2ROS/GPT3/__pycache__
-/NLP4BPMN2ROS/BPMN/__pycache__
-/NLP4BPMN2ROS/ROS/__pycache__
-/NLP4BPMN2ROS/testfiles/__pycache__
-/NLP4BPMN2ROS/__pycache__
+/NLP4BPMN2ROS/GPT3/__pycache__/*
+/NLP4BPMN2ROS/BPMN/__pycache__/*
+/NLP4BPMN2ROS/ROS/__pycache__/*
+/NLP4BPMN2ROS/testfiles/__pycache__/*
+/NLP4BPMN2ROS/__pycache__/*
+/ROS/__pycache__/writeROS_function.cpython-39.pyc
+/GPT3/__pycache__/NLP_functions.cpython-39.pyc
+/BPMN/__pycache__/BPMN_dict.cpython-39.pyc
+/BPMN/__pycache__/pre_functions.cpython-39.pyc
+/__pycache__/config.cpython-39.pyc

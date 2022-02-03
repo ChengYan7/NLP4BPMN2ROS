@@ -1,1 +1,6 @@
 config.py
+/NLP4BPMN2ROS/GPT3/__pycache__
+/NLP4BPMN2ROS/BPMN/__pycache__
+/NLP4BPMN2ROS/ROS/__pycache__
+/NLP4BPMN2ROS/testfiles/__pycache__
+/NLP4BPMN2ROS/__pycache__

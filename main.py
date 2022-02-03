@@ -22,9 +22,9 @@ filename = "UC1_CS_Clip_Lightbarrier2LightbarrierHolder.bpmn" #ok
 filename= "UC1_CS_Clip_Motor2MotorAssembly0.bpmn" #ok
 filename = "UC1_CS_Clip_MotorGear2MotorAssembly1.bpmn" #ok
 filename ="UC1_CS_Clip_SupportWheel2BasePlate.bpmn"#ok
-filename="UC1_CS_Clip_TransmissionGear2MotorHolder.bpmn"#ok
+filename1 ="UC1_CS_Clip_TransmissionGear2MotorHolder.bpmn"#ok
 filename = "UC1_CS_PickAndPlace_Baseplate.bpmn"#ok
-filename1 = "UC1_PR_Assembly_GearBox.bpmn" #OKK!!!
+filename = "UC1_PR_Assembly_GearBox.bpmn" #OKK!!!
 
 def main():
 
